@@ -1,6 +1,7 @@
 /* css 에서 전역 변수 */
 :root {
-  --brand-color: #dbe8e3;
+  --brand-color: #fdb456;
+  --brand-color2: #ffebd0;
 }
 
 * {
@@ -25,12 +26,7 @@ img {
   border: 0;
 }
 html {
-  margin: 0 auto;
   font-size: 10px;
-  max-width: 390px;
-  min-width: 360px;
-  height: 100vh;
-  min-height: 640px;
 }
 
 body {
@@ -42,9 +38,4 @@ body {
   line-height: 1.25;
   letter-spacing: -0.25px;
   word-break: break-all;
-  height: 100%;
-}
-
-#root {
-  height: 100%;
 }
