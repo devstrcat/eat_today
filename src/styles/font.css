@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "KingSejongInstitute";
+  src: local("KingSejongInstitute"),
+    url("../fonts/KingSejongInstitute-Bold.ttf") format("truetype"),
+    url("../fonts/KingSejongInstitute-Regular.ttf") format("truetype");
+}
