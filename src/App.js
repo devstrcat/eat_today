@@ -4,6 +4,8 @@ import Index from "./pages/Index";
 import { Wrap } from "./styles/basic";
 import { Route, Routes } from "react-router";
 import RecipeMore from "./pages/RecipeMore";
+import MealBig from "./pages/home/MealBig";
+import MealSmall from "./pages/home/MealSmall";
 
 const App = () => {
   return (
@@ -12,6 +14,8 @@ const App = () => {
         <Route path="/" element={<Intro />}></Route>
         <Route path="/meal" element={<Index />}></Route>
         <Route path="/meal/more" element={<RecipeMore />}></Route>
+        <Route path="/meal/big" element={<MealBig />}></Route>
+        <Route path="/meal/small" element={<MealSmall />}></Route>
       </Routes>
     </Wrap>
   );
