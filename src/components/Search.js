@@ -13,7 +13,7 @@ const Search = props => {
     justify-content: space-between;
     align-items: center;
     padding: 0 7px;
-    width: 266px;
+    width: 280px;
     height: 30px;
     border-radius: 20px;
     background: #fff;
@@ -21,7 +21,7 @@ const Search = props => {
   `;
   const SearchInput = styled.input`
     border: 0;
-    width: 200px;
+    width: 250px;
   `;
   const SearchButton = styled.button`
     width: 26px;

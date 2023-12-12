@@ -28,6 +28,9 @@ img {
 html {
   font-size: 10px;
 }
+button {
+  border: 0;
+}
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

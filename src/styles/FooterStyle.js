@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 export const FooterDiv = styled.div`
   position: fixed;
   bottom: 0;
-  max-width: 390px;
+  max-width: 320px;
   width: 100%;
   padding-top: 9px;
   padding-bottom: 11px;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FooterButton, FooterDiv, FooterImg } from "../styles/FooterStyle";
+import { FooterButton, FooterDiv, FooterImg } from "../styles/footerStyle";
 
 const Footer = props => {
   return (
