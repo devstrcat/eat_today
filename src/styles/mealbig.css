@@ -1,0 +1,55 @@
+.details {
+  width: 231px;
+  height: 292px;
+}
+.bulletinbox {
+  position: relative;
+  background: #ffebd0;
+  padding: 11px;
+}
+.bulletinbox-title {
+  position: relative;
+  margin: 11px;
+  width: 101px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.bulletinbox-title input {
+  position: relative;
+  border: none;
+  display: flex;
+  padding: 3px;
+  border-radius: 10px;
+  display: inline-block;
+  background: #fff;
+}
+.bulletinbox-picture {
+  position: relative;
+  margin: auto;
+  padding: 3px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.bulletinbox-hashtag {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.bulletinbox-hashtag span {
+  border: none;
+  background: #fff;
+  border-radius: 5px;
+  max-width: 31%;
+  padding: 3px;
+}
+.derail {
+  position: relative;
+  width: 203px;
+  height: 43px;
+  margin: auto;
+  word-break: break-all;
+  border: none;
+}

@@ -20,7 +20,7 @@ const Intro = () => {
   useEffect(() => {
     // 3초 후에 "/home"으로 이동
     const timeoutId = setTimeout(() => {
-      navigate("/home");
+      navigate("/meal");
     }, 2000);
 
     // 컴포넌트가 언마운트될 때 타이머 제거
