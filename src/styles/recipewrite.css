@@ -1,0 +1,57 @@
+.wrap {
+  position: relative;
+  width: 320px;
+  height: 960px;
+  background-color: hotpink;
+}
+.textboxes {
+  position: relative;
+  
+}
+.textboxes-title {
+  position: relative;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 279px;
+  height: 40px;
+  border: 0;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.textboxes-ingre {
+  position: relative;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 279px;
+  height: 40px;
+  border: 0;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.textboxes-tags {
+  position: relative;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 279px;
+  height: 40px;
+  border: 0;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.textboxes-recipe {
+  position: relative;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 279px;
+  height: 151px;
+  background: #fff;
+  border-radius: 10px;
+}
+.textboxes-comment {
+  position: relative;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 279px;
+  height: 151px;
+  background: #fff;
+  border-radius: 10px;
+}
+.write-button{}
+.restart-bt{}
+.complete-bt{}
+.delete-bt{}

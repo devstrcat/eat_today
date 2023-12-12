@@ -3,13 +3,15 @@ import Intro from "./pages/Intro";
 import Index from "./pages/Index";
 import { Wrap } from "./styles/basic";
 import { Route, Routes } from "react-router";
+import RecipeWrite from "./pages/RecipeWrite";
 
 const App = () => {
   return (
     <Wrap maxw={390} minw={320} minh={640}>
       <Routes>
         <Route path="/" element={<Intro />}></Route>
-        <Route path="/home" element={<Index />}></Route>
+        <Route path="/meal" element={<Index />}></Route>
+        <Route path="/meal/write" element={<RecipeWrite/>}></Route>
       </Routes>
     </Wrap>
   );
