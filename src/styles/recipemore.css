@@ -1,0 +1,61 @@
+.wrap {
+    width: 266px;
+}
+.main-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.edit {
+    width: 18px;
+    height: 18px;
+    border: 0;
+    background: url("/public/images/edit_icon.svg") no-repeat;
+    cursor: pointer;
+}
+.trash {
+    width: 20px;
+    height: 20px;
+    border: 0;
+    background: url("/public/images/trash_icon.svg") no-repeat;
+    cursor: pointer;
+}
+.title {
+    color: #FFEBD0;
+    position: relative;
+    border-radius: 20px;
+    width: 142px;
+    height: 40px;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+
+}
+.ingredient {
+    background-color: #FFEBD0;
+    position: relative;
+    border-radius: 10px;
+    width: 266px;
+    height: 147px;
+
+
+}
+.recipe {
+    background-color: #FFEBD0;
+    position: relative;
+    border-radius: 10px;
+    width: 266px;
+    height: 151px;
+
+
+}
+.comment {
+    background-color: #FFEBD0;
+    position: relative;
+    border-radius: 10px;
+    width: 266px;
+    height: 100px;
+
+}
