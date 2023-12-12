@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/meal" element={<Index />}></Route>
         <Route path="/meal/more" element={<RecipeMore />}></Route>
         <Route path="/meal/big" element={<MealBig />}></Route>
-        <Route path="/meal/small" element={<MealSmall />}></Route>
+        <Route path="/meal/small" element={<MealSmall maxw={390} />}></Route>
       </Routes>
     </Wrap>
   );
