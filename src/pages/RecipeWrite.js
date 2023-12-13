@@ -41,7 +41,7 @@ const RecipeWrite = () => {
         {/* 버튼 3가지 */}
         <div className="write-button">
           <div className="restart-bt">
-         
+           <img></img>
           </div>
           <div className="complete-bt">
       
