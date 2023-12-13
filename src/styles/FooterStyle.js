@@ -18,13 +18,3 @@ export const FooterImg = styled.img`
   border-radius: 20px;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
 `;
-export const FooterButton = styled.button`
-  width: 40px;
-  height: 40px;
-  border: 0;
-  border-radius: 20px;
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
-  background: url("/images/common/search.svg") no-repeat;
-  background-size: cover;
-  cursor: pointer;
-`;

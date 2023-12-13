@@ -10,12 +10,12 @@ import MealSmall from "./pages/home/MealSmall";
 
 const App = () => {
   return (
-    <Wrap maxw={320} minw={320} minh={640}>
+    <Wrap width={320}>
       <Routes>
         <Route path="/" element={<Intro />}></Route>
         <Route path="/meal" element={<Index />}></Route>
         <Route path="/meal/big" element={<MealBig />}></Route>
-        <Route path="/meal/small" element={<MealSmall maxw={390} />}></Route>
+        <Route path="/meal/small" element={<MealSmall width={320} />}></Route>
         <Route path="/meal/write" element={<RecipeWrite />}></Route>
         <Route path="/meal/more" element={<RecipeMore />}></Route>
       </Routes>
