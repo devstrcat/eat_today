@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { FooterButton, FooterDiv, FooterImg } from "../styles/FooterStyle";
+import { FooterDiv, FooterImg } from "../styles/footerStyle";
 
-const Footer = props => {
+const Footer = () => {
   return (
     <FooterDiv>
       <Link to="/meal">
@@ -14,7 +14,9 @@ const Footer = props => {
       <Link to="/meal/bookmark">
         <FooterImg src="/images/common/book_mark.svg"></FooterImg>
       </Link>
-      <FooterButton onClick={props.handleClick}></FooterButton>
+      <Link to="/">
+        <FooterImg src="/images/common/logo.svg"></FooterImg>
+      </Link>
     </FooterDiv>
   );
 };

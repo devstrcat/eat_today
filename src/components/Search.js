@@ -1,19 +1,21 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-const Search = props => {
+const Search = () => {
   const HeaderStyle = styled.header`
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    align-items: center;
+    padding: 28px;
     height: 30px;
+    background-color: #fdb456;
   `;
   const SearchForm = styled.form`
-    display: ${props.isHidden ? "flex" : "none"};
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 7px;
-    width: 266px;
+    padding: 0 10px;
+    width: 280px;
     height: 30px;
     border-radius: 20px;
     background: #fff;
@@ -21,7 +23,7 @@ const Search = props => {
   `;
   const SearchInput = styled.input`
     border: 0;
-    width: 200px;
+    width: 250px;
   `;
   const SearchButton = styled.button`
     width: 26px;
