@@ -7,6 +7,11 @@ import RecipeWrite from "./pages/RecipeWrite";
 import RecipeMore from "./pages/RecipeMore";
 import MealBig from "./pages/home/MealBig";
 import MealSmall from "./pages/home/MealSmall";
+import NotFound from "./pages/NotFound";
+
+
+
+
 
 const App = () => {
   return (
@@ -18,6 +23,8 @@ const App = () => {
         <Route path="/meal/small" element={<MealSmall maxw={390} />}></Route>
         <Route path="/meal/write" element={<RecipeWrite/>}></Route>
         <Route path="/meal/more" element={<RecipeMore />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+
       </Routes>
     </Wrap>
   );
