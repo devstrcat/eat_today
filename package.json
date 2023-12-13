@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.20.1",
@@ -42,6 +43,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "",
   "devDependencies": {
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
