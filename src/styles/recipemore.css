@@ -1,20 +1,29 @@
 .wrap {
-    width: 266px;
+    width: 320px;
 }
 .main-wrap {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
+    padding-top: 10px;
 }
 .header-wrap {
     display: flex;
+    padding: 20px  27px 0;
     justify-content: space-between;
 }
+.bt-wrap {
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .edit {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border: 0;
-    background: url("/public/images/edit_icon.svg") no-repeat;
+    background: url("/public/images/edit_icon2.svg") no-repeat;
     cursor: pointer;
 }
 .trash {
@@ -25,37 +34,70 @@
     cursor: pointer;
 }
 .title {
-    color: #FFEBD0;
+    font-size: 16px;
+    font-family: "KingSejongInstitute", sans-serif;
+    text-align: center;
     position: relative;
+    border: none;
     border-radius: 20px;
-    width: 142px;
+    width: 150px;
     height: 40px;
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    padding-top: 10px;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
 }
+.img {
+    /* width: 266px;
+    height: 280px; */
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-between;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.hashtag {
+    width: 266px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.hashtag li {
+    font-family: "KingSejongInstitute", sans-serif;
+    width: 74px;
+    height: 25px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    font-size: 8px;
+    padding-top: 8px;
+}
+
 .ingredient {
+    border: none;
     background-color: #FFEBD0;
     position: relative;
     border-radius: 10px;
+    justify-content: center;
     width: 266px;
     height: 147px;
-
-
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .recipe {
+    border: none;
     background-color: #FFEBD0;
     position: relative;
     border-radius: 10px;
     width: 266px;
     height: 151px;
-
-
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .comment {
+    border: none;
     background-color: #FFEBD0;
     position: relative;
     border-radius: 10px;
     width: 266px;
     height: 100px;
-
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
