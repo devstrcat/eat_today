@@ -15,7 +15,7 @@ const MealSmall = () => {
     <div>
       <Search handleClick={handleClick} isHidden={isHidden}></Search>
       <main>group</main>
-      <Footer handleClick={handleClick}></Footer>
+      햣
     </div>
   );
 };

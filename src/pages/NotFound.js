@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Back, Boxs, Content, Cover, Phrases } from "../styles/notfoundcss";
+import { Back, Boxs, Content, Cover, Phrases } from "../styles/notfoundStyle";
 
 import { Link } from "react-router-dom";
 

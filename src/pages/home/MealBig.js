@@ -9,20 +9,15 @@ import {
   Derail,
   Detais,
   DulletInbox,
-} from "../../styles/mealbigcss";
+} from "../../styles/mealbigStyle";
 
 const MealBig = () => {
-  // 상태를 사용하여 버튼 클릭 여부를 추적
-  const [isHidden, setIsHidden] = useState(true);
+ 
 
-  // 버튼 클릭 시 상태 변경
-  const handleClick = () => {
-    setIsHidden(!isHidden);
-  };
 
   return (
     <>
-      <Search handleClick={handleClick} isHidden={isHidden}></Search>
+      <Search ></Search>
       <Detais>
         <DulletInbox>
           <BulletinboxTitle>
@@ -47,7 +42,7 @@ const MealBig = () => {
         </DulletInbox>
       </Detais>
 
-      <Footer handleClick={handleClick}></Footer>
+      <Footer></Footer>
     </>
   );
 };
