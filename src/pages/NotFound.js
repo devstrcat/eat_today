@@ -16,7 +16,7 @@ const NotFound = () => {
           <br />
           잘못된 경로를 이용하셨어요
         </Content>
-        <Link to={"/meal/big"}>
+        <Link to={"/meal/small"}>
           <Back>홈으로 이동</Back>
         </Link>
       </Boxs>

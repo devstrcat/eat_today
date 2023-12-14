@@ -12,12 +12,9 @@ import {
 } from "../../styles/mealbigStyle";
 
 const MealBig = () => {
- 
-
-
   return (
     <>
-      <Search ></Search>
+      <Search></Search>
       <Detais>
         <DulletInbox>
           <BulletinboxTitle>

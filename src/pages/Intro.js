@@ -8,17 +8,17 @@ const Intro = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     background-color: var(--brand-color);
-  `;
-  const IntroImg = styled.img`
-    object-fit: cover;
+    img {
+      object-fit: cover;
+    }
   `;
 
+  // 함수
   const navigate = useNavigate();
-
   useEffect(() => {
-    // 3초 후에 "/home"으로 이동
+    // 3초 후에 "/meal"으로 이동
     const timeoutId = setTimeout(() => {
       navigate("/meal");
     }, 2000);
@@ -29,7 +29,7 @@ const Intro = () => {
 
   return (
     <IntroDiv>
-      <IntroImg src="/images/Intro_logo.svg" />
+      <img src="/images/Intro_logo.svg" />
     </IntroDiv>
   );
 };

@@ -27,7 +27,7 @@ export const BulletinboxTitle = styled.h4`
     background: #fff;
   }
 `;
-export const BulletinboxtitleInput = styled.div`
+export const BulletinboxTitleInput = styled.div`
   position: relative;
   border: none;
   display: flex;
