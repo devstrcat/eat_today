@@ -2,8 +2,9 @@ import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
   position: relative;
-  height: 100vh;
+  min-height: ${props => props.minh + "vh"};
   margin: 0 auto;
   width: ${props => props.width + "px"};
   background-color: #fff;
+  padding-bottom: 80px;
 `;

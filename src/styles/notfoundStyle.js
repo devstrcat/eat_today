@@ -1,27 +1,27 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
-export const Cover= styled.div`
+export const Cover = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: #fdb456;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 export const Boxs = styled.div`
-position: relative;
-`
+  position: relative;
+`;
 export const Phrases = styled.h2`
- color: #fff;
+  color: #fff;
   font-family: NanumGothic;
   font-size: 65px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   padding: 14px;
-`
+`;
 export const Content = styled.p`
   color: #fff;
   text-align: center;
@@ -32,9 +32,9 @@ export const Content = styled.p`
   line-height: 20px;
   text-align: center;
   padding: 15px;
-`
+`;
 export const Back = styled.button`
-margin: 15px;
+  margin: 15px;
   color: #fff;
   border: 1px solid;
   background-color: #fdb456;
@@ -49,4 +49,4 @@ margin: 15px;
   font-weight: 700;
   line-height: normal;
   cursor: pointer;
-`
+`;
