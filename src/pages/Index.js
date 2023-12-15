@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import Search from "../components/Search";
+import Footer from "../components/Footer";
+import MealViewBt from "../components/meal/MealViewBt";
+import MealSmall from "../components/meal/MealSmall";
+import MealBig from "../components/meal/MealBig";
 
 const Index = () => {
+  // 상태를 사용하여 버튼 클릭 여부를 추적
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const buttonClick = () => {
+    setButtonClicked(!buttonClicked);
+  };
+
   return (
     <div>
-      <h2>Index</h2>
+      <Search></Search>
+      <main>
+        <MealViewBt
+          buttonClicked={buttonClicked}
+          buttonClick={buttonClick}
+        ></MealViewBt>
+        {buttonClicked ? <MealBig /> : <MealSmall />}
+      </main>
+      <Footer></Footer>
     </div>
   );
 };

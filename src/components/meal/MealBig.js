@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-
-import Footer from "../../components/Footer";
-import Search from "../../components/Search";
+import React from "react";
 import {
   BulletinboxHashtag,
   BulletinboxPicture,
@@ -14,7 +11,6 @@ import {
 const MealBig = () => {
   return (
     <>
-      <Search></Search>
       <Detais>
         <DulletInbox>
           <BulletinboxTitle>
@@ -38,8 +34,6 @@ const MealBig = () => {
           ></Derail>
         </DulletInbox>
       </Detais>
-
-      <Footer></Footer>
     </>
   );
 };
