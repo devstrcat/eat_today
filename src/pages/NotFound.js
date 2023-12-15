@@ -1,10 +1,15 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
 import { Back, Boxs, Content, Cover, Phrases } from "../styles/notfound";
 
-import { Link } from "react-router-dom";
-
 const NotFound = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/meal`);
+  };
+
   return (
     <Cover>
       <Boxs>
@@ -16,9 +21,8 @@ const NotFound = () => {
           <br />
           잘못된 경로를 이용하셨어요
         </Content>
-        <Link to={"/meal/small"}>
-          <Back>홈으로 이동</Back>
-        </Link>
+
+        <Back onClick={handleClick}>홈으로 이동</Back>
       </Boxs>
     </Cover>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FooterDiv, FooterImg } from "../styles/footerStyle";
+import { FooterDiv, FooterImg } from "../styles/footer";
 
 const Footer = () => {
   return (
