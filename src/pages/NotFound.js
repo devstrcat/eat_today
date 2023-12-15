@@ -1,16 +1,9 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Back, Boxs, Content, Cover, Phrases } from "../styles/notfound";
-import Footer from "../components/Footer";
 
 const NotFound = () => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`/meal`);
-  };
-
   return (
     <div>
       <Cover>
@@ -23,8 +16,9 @@ const NotFound = () => {
             <br />
             잘못된 경로를 이용하셨어요
           </Content>
-
-          <Back onClick={handleClick}>홈으로 이동</Back>
+          <Link to={"/meal"}>
+            <Back>홈으로 이동</Back>
+          </Link>
         </Boxs>
       </Cover>
     </div>
