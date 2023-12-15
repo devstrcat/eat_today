@@ -1,17 +1,17 @@
 import React from "react";
-import NoticeBoard from "./NoticeBoard";
+import NoticeBoardSmall from "./NoticeBoardSmall";
 import { SmallWrap } from "../../styles/basic";
 
 const MealSmall = () => {
   return (
     <div>
       <SmallWrap>
-        <NoticeBoard></NoticeBoard>
-        <NoticeBoard></NoticeBoard>
-        <NoticeBoard></NoticeBoard>
-        <NoticeBoard></NoticeBoard>
-        <NoticeBoard></NoticeBoard>
-        <NoticeBoard></NoticeBoard>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
       </SmallWrap>
     </div>
   );

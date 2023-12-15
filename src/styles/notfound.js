@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Cover = styled.div`
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
   background: #fdb456;
@@ -20,16 +20,15 @@ export const Phrases = styled.h2`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  padding: 14px;
 `;
 export const Content = styled.p`
   color: #fff;
   text-align: center;
-  font-family: NanumGothic;
-  font-size: 13px;
+  font-family: "KingSejongInstitute";
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 24px;
   text-align: center;
   padding: 15px;
 `;
@@ -43,7 +42,7 @@ export const Back = styled.button`
   padding-right: 26px;
   border-color: #f2eded;
   border-width: 4px;
-  font-family: NanumGothic;
+  font-family: "KingSejongInstitute";
   font-size: 11px;
   font-style: normal;
   font-weight: 700;
