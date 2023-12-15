@@ -33,6 +33,6 @@ const RecipeMore = () => {
         <Footer />
     </MoreWrap>
   )
-}
+};
 
-export default RecipeMore
+export default RecipeMore;
