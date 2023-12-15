@@ -1,28 +1,46 @@
 import React from "react";
 import "../styles/recipewrite.css";
 import Footer from "../components/Footer";
+import {
+  AddImages,
+  AddImagesLeft,
+  AddImagesMid,
+  AddImagesRight,
+  CancelButton,
+  CancelButtonIcon,
+  RecipeComment,
+  RecipeWriteTop,
+  RecipeWriteWrap,
+  TextBoxHashTags,
+  TextBoxes,
+  WriteButtons,
+} from "../styles/recipewriteStyle";
 
 const RecipeWrite = () => {
   return (
-    <div className="recipewrite">
-      <div className="wrap">
+    <RecipeWriteWrap>
+      <RecipeWriteTop>
         {/* 상단 취소 버튼 */}
-        <div className="cancelbutton">
-          <div className="cancelbutton-icon">
+        <CancelButton>
+          <CancelButtonIcon>
             <img src="/images/cancel_icon.svg" />
-          </div>
-        </div>
+          </CancelButtonIcon>
+        </CancelButton>
         {/* 이미지 추가 */}
-        <div className="addimages">
-          <div className="addimages-img">
-            <img src="/images/cake_small.jpg" />
-          </div>
-          <div className="addimages-icon-sec"></div>
-          <div className="addimages-icon-thr"></div>
-        </div>
+        <AddImages>
+          <AddImagesLeft>
+            <img src="/images/choco.png" />
+          </AddImagesLeft>
+          <AddImagesMid>
+            <img src="/images/add_icon.svg" />
+          </AddImagesMid>
+          <AddImagesRight>
+            <img src="/images/add_icon.svg" />
+          </AddImagesRight>
+        </AddImages>
 
         {/* 텍스트 박스 */}
-        <div className="textboxes">
+        <TextBoxes>
           <input
             className="textboxes-title"
             placeholder="제목을 입력해주세요."
@@ -31,28 +49,43 @@ const RecipeWrite = () => {
             className="textboxes-ingre"
             placeholder="재료를 입력해주세요."
           ></input>
+
           {/* 해시 태그 */}
-          <div className="textboxes-hashtags">
-            <input className="textboxes-tags-add" placeholder="#"></input>
-          </div>
+          <TextBoxHashTags>
+            <input
+              className="textboxes-tags-today"
+              placeholder="#오늘의디저트"
+            ></input>
+            <input
+              className="textboxes-tags-chococake"
+              placeholder="#크리스마스초코케익"
+            ></input>
+            <div className="textboxes-tags-add">
+              <img src="/images/add_icon.svg"  />
+            </div>
+          </TextBoxHashTags>
+
+          {/* 레시피 기록 및 다이어리 코멘트 */}
+          <RecipeComment>
           <input className="textboxes-recipe" placeholder="Recipe" />
           <input className="textboxes-comment" placeholder="Diary comment..." />
-        </div>
+          </RecipeComment>
+        </TextBoxes>
+
         {/* 버튼 3가지 */}
-        <div className="write-button">
+        <WriteButtons>
           <div className="restart-bt">
-           <img></img>
+            <img src="/images/reset_icon.png" />
           </div>
           <div className="complete-bt">
-      
+            <img src="/images/check_icon.svg"  />
           </div>
-          <div className="delete-bt">
+  
+        </WriteButtons>
         
-          </div>
-        </div>
-      </div>
-      <Footer></Footer>
-    </div>
+        <Footer></Footer>
+      </RecipeWriteTop>
+    </RecipeWriteWrap>
   );
 };
 
