@@ -8,7 +8,7 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/meal/big`);
+    navigate(`/meal`);
   };
 
   return (

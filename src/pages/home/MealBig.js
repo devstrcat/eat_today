@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Footer from "../../components/Footer";
 import Search from "../../components/Search";
-import NoticeBoard from "../../components/meal/NoticeBoard";
+import NoticeBoard1 from "../../components/meal/NoticeBoard";
 
 
 
@@ -11,7 +11,7 @@ const MealBig = () => {
     <>
       <Search></Search>
       <main>
-        <NoticeBoard></NoticeBoard>
+        <NoticeBoard1></NoticeBoard1>
       </main>
       <Footer></Footer>
     </>
