@@ -7,7 +7,7 @@ const RecipeMore = () => {
     <div className='wrap'>
         <header className='header'>
             <div className='header-wrap'>
-            <div className='title'>초코케이크</div>
+            <div className='title'>초코케익</div>
                 <div className='bt-wrap'>
                 <button className='edit'>
                 </button>
