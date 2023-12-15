@@ -8,3 +8,9 @@ export const Wrap = styled.div`
   background-color: #fff;
   padding-bottom: 80px;
 `;
+
+export const SmallWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
