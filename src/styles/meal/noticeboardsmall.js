@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const NoticeBoardDiv = styled.div`
   width: 128px;
-  margin: 15px 0 0;
+  margin: 10px 0 0;
   background: var(--brand-color2);
   padding: 5px;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);

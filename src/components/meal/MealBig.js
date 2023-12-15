@@ -1,11 +1,14 @@
 import React from "react";
-import NoticeBoard1 from "../../components/meal/NoticeBoard1";
+import NoticeBoardBig from "./NoticeBoardBig";
+import { SmallWrap } from "../../styles/basic";
 
 const MealBig = () => {
   return (
-    <>
-      <NoticeBoard1></NoticeBoard1>
-    </>
+    <div>
+      <SmallWrap>
+        <NoticeBoardBig></NoticeBoardBig>
+      </SmallWrap>
+    </div>
   );
 };
 

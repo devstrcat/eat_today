@@ -3,12 +3,12 @@ import {
   NoticeBoardDiv,
   NoticeBoardPics,
   NoticeBoardTags,
-} from "../../styles/meal/noticeboard";
+} from "../../styles/meal/noticeboardsmall";
 import { Link } from "react-router-dom";
 
 const NoticeBoard = () => {
   return (
-    <>
+    <div>
       <Link to={"more"}>
         <NoticeBoardDiv>
           <NoticeBoardPics>
@@ -23,7 +23,7 @@ const NoticeBoard = () => {
           </NoticeBoardTags>
         </NoticeBoardDiv>
       </Link>
-    </>
+    </div>
   );
 };
 

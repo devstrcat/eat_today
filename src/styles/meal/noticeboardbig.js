@@ -2,19 +2,18 @@ import styled from "@emotion/styled";
 
 export const NoticeBoardStyle = styled.div`
   width: 231px;
-  margin: 15px auto;
+  margin: 15px 0 0;
   position: relative;
   background: #ffebd0;
-  padding: 11px;
+  padding: 8px;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
 `;
 export const NoticeBoardTitle = styled.h4`
   position: relative;
-  margin: 11px;
-  width: 101px;
-  height: 20px;
+  margin-bottom: 8px;
+  width: 100%;
   flex-shrink: 0;
-  p {
+  h2 {
     padding: 5px;
     position: relative;
     border: none;
@@ -26,8 +25,6 @@ export const NoticeBoardTitle = styled.h4`
 
 export const NoticeBoardPics = styled.div`
   position: relative;
-  margin: 0 0 8px;
-
   width: 100%;
   overflow: hidden;
   border-radius: 20px;
@@ -40,21 +37,21 @@ export const NoticeBoardTags = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   span {
     border: none;
     background: #fff;
     border-radius: 5px;
-    max-width: 31%;
+    /* max-width: 31%; */
     padding: 3px;
   }
 `;
 export const NoticeBoardReview = styled.div`
   background: #ffff;
   position: relative;
-  width: 203px;
+  width: 100%;
   height: 43px;
-  margin: auto;
   word-break: break-all;
   border: none;
   p {
