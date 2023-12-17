@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Footer from '../components/Footer';
-import { BtWrap, CakeImg, ContentWrap, HashTagWrap, HeaderWrap, MoreMainWrap, MoreWrap, Title } from '../styles/more/moreStyle';
+import { BtWrap, CakeImg, ContentWrap, HashTagWrap, HeaderWrap, MoreMainWrap, Title } from '../styles/more/moreStyle';
 import Search from '../components/Search';
 
 const RecipeMore = () => {
@@ -10,7 +10,7 @@ const RecipeMore = () => {
   }
 
   return (
-    <MoreWrap>
+    <div>
       <Search></Search>
       <HeaderWrap>
         <Title>초코케이크</Title>
@@ -38,7 +38,7 @@ const RecipeMore = () => {
         </ContentWrap>
       </MoreMainWrap>
       <Footer />
-    </MoreWrap>
+    </div>
   )
 };
 

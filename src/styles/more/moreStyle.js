@@ -1,8 +1,5 @@
 import styled from "@emotion/styled";
 
-export const MoreWrap = styled.div`
-  padding-bottom: 120px;
-`;
 export const HeaderWrap = styled.div`
   display: flex;
   padding: 20px 27px 0;
