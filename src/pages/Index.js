@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import MealViewBt from "../components/meal/MealViewBt";
 import MealSmall from "../components/meal/MealSmall";
 import MealBig from "../components/meal/MealBig";
+import { BookMarkIcon } from "../styles/meal/noticeboardsmall";
 
 const Index = () => {
   // 상태를 사용하여 버튼 클릭 여부를 추적
@@ -20,7 +21,7 @@ const Index = () => {
           buttonClicked={buttonClicked}
           buttonClick={buttonClick}
         ></MealViewBt>
-        {buttonClicked ? <MealBig /> : <MealSmall />}
+        {buttonClicked ? <MealBig /> : <MealSmall BookMarkShow={0}/>}
       </main>
       <Footer></Footer>
     </div>

@@ -24,6 +24,13 @@ export const NoticeBoardPics = styled.div`
   }
 `;
 
+export const BookMarkIcon = styled.img`
+  content: url("/images/common/book_mark_icon_click.svg");
+  position: absolute;
+  z-index: 5;
+  transform: translate(100px, -50%);
+`
+
 export const NoticeBoardTags = styled.div`
   position: relative;
   display: flex;

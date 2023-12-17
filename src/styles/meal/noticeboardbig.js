@@ -8,7 +8,7 @@ export const NoticeBoardStyle = styled.div`
   padding: 8px;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
 `;
-export const NoticeBoardTitle = styled.h4`
+export const NoticeBoardTitle = styled.div`
   position: relative;
   margin-bottom: 8px;
   width: 100%;

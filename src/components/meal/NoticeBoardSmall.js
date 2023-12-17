@@ -1,16 +1,18 @@
 import React from "react";
 import {
+  BookMarkIcon,
   NoticeBoardDiv,
   NoticeBoardPics,
   NoticeBoardTags,
 } from "../../styles/meal/noticeboardsmall";
 import { Link } from "react-router-dom";
 
-const NoticeBoard = () => {
+const NoticeBoard = (props) => {
   return (
     <div>
-      <Link to={"more"}>
+      <Link to={"/meal/more"}>
         <NoticeBoardDiv>
+        {props.BookMarkShow ? <BookMarkIcon /> : null }
           <NoticeBoardPics>
             <img src="/images/choco.png" alt="사진을 넣어주세요" />
           </NoticeBoardPics>
