@@ -2,18 +2,13 @@ import React from "react";
 import NoticeBoardSmall from "./NoticeBoardSmall";
 import { SmallWrap } from "../../styles/basic";
 
-const MealSmall = ({BookMarkShow}) => {
+const MealSmall = ({data}) => {
   return (
     <div>
       <SmallWrap>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
-        <NoticeBoardSmall BookMarkShow={BookMarkShow}></NoticeBoardSmall>
+        {data.map((mealData) => (
+          <NoticeBoardSmall key={mealData.id} data={mealData} />
+        ))}
       </SmallWrap>
     </div>
   );

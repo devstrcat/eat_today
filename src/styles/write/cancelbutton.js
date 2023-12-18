@@ -16,4 +16,5 @@ export const CancelButtonIcon = styled.div`
   margin: 18px 0 22px;
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
+  cursor: pointer;
 `;

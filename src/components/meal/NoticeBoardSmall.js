@@ -8,20 +8,20 @@ import {
 import { Link } from "react-router-dom";
 
 const NoticeBoard = (props) => {
+  const { data } = props;
+  
   return (
     <div>
       <Link to={"/meal/more"}>
         <NoticeBoardDiv>
-        {props.BookMarkShow ? <BookMarkIcon /> : null }
+        {props.bookmark ? <BookMarkIcon /> : null }
           <NoticeBoardPics>
-            <img src="/images/choco.png" alt="사진을 넣어주세요" />
+            <img src={data.pics} alt="사진을 넣어주세요" />
           </NoticeBoardPics>
           <NoticeBoardTags>
-            <span>#초콜릿케이크</span>
-            <span>#빵집</span>
-            <span>#케이크</span>
-            <span>#맛있다</span>
-            <span>#어렵다</span>
+          {data.tags.map((tags, index) => (
+              <span key={index}>{tags}</span>
+            ))}
           </NoticeBoardTags>
         </NoticeBoardDiv>
       </Link>

@@ -12,23 +12,24 @@ import CancelButton from "../components/write/CancelButton";
 import AddImages from "../components/write/AddImages";
 
 const RecipeWrite = () => {
+
   return (
     <RecipeWriteWrap>
       <RecipeWriteTop>
         {/* 상단 취소 버튼 */}
         <CancelButton></CancelButton>
-        {/* 이미지 추가 */}
-        <AddImages></AddImages>
         {/* 텍스트 박스 */}
         <TextBoxes>
+          {/* 이미지 추가 */}
+        <AddImages></AddImages>
           <input
             className="textboxes-title"
             placeholder="제목을 입력해주세요."
           ></input>
-          <input
+          <textarea
             className="textboxes-ingre"
             placeholder="재료를 입력해주세요."
-          ></input>
+          ></textarea>
           {/* 해시 태그 */}
           <TextBoxHashTags>
             <input
@@ -46,15 +47,15 @@ const RecipeWrite = () => {
 
           {/* 레시피 기록 및 다이어리 코멘트 */}
           <RecipeComment>
-            <input className="textboxes-recipe" placeholder="Recipe" />
-            <input className="textboxes-comment" placeholder="Diary comment..." />
+            <textarea className="textboxes-recipe" placeholder="Recipe" />
+            <textarea className="textboxes-comment" placeholder="Diary comment..." />
           </RecipeComment>
            {/* 버튼 3가지 */}
           <WriteButtons>
-            <button className="restart-bt">
+            <button type="reset" className="restart-bt">
               <img src="/images/reset_icon.png" />
             </button>
-            <button className="complete-bt">
+            <button type="submit" className="complete-bt">
               <img src="/images/check_icon.svg"  />
             </button>
           </WriteButtons>
