@@ -17,9 +17,6 @@ export const Phrases = styled.h2`
   color: #fff;
   font-family: NanumGothic;
   font-size: 65px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 `;
 export const Content = styled.p`
   color: #fff;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
-import { BtWrap, CakeImg, ContentWrap, HashTagWrap, HeaderWrap, MoreMainWrap, MoreWrap, Title } from '../styles/more/moreStyle';
+import { BtWrap, CakeImg, ContentWrap, HashTagWrap, HeaderWrap, MoreMainWrap, Title } from '../styles/more/moreStyle';
 import Search from '../components/Search';
 import { getMore } from '../api/more_api';
 
 const RecipeMore = () => {
+
   const [more, setMore] = useState(
     // initialize = 초기값 셋팅
     {
@@ -26,9 +27,14 @@ const RecipeMore = () => {
     getMore(setMore);
   },[]);
 
-  
+  // 북마크 버튼
+  const [isClicked, setIsClicked] = useState(false);
+  const bookMarkHover = () => {
+    setIsClicked(!isClicked);
+  }
+
   return (
-    <MoreWrap>
+    <div>
       <Search></Search>
             <HeaderWrap>
             <Title>{more.title}</Title>
@@ -53,7 +59,7 @@ const RecipeMore = () => {
             </ContentWrap>
         </MoreMainWrap>
         <Footer />
-    </MoreWrap>
+    </div>
   )
 };
 

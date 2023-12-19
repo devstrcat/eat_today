@@ -12,5 +12,5 @@ export const Wrap = styled.div`
 export const SmallWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
