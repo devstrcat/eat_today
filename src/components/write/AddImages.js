@@ -45,7 +45,7 @@ const AddImages = () => {
   const uploadButton = (
     <Uimg>
       {/* <PlusOutlined /> */}
-      <img src="/images/add_icon.svg"></img>
+      <img src="/images/write/add_icon.svg"></img>
     </Uimg>
   );
 

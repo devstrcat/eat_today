@@ -73,10 +73,10 @@ const RecipeWrite = () => {
             {/* 버튼 3가지 */}
             <WriteButtons>
               <button type="reset" className="restart-bt">
-                <img src="/images/reset_icon.png" />
+                <img src="/images//write/reset_icon.png" />
               </button>
               <button type="submit" className="complete-bt">
-                <img src="/images/check_icon.svg" />
+                <img src="/images/write/check_icon.svg" />
               </button>
             </WriteButtons>
             <Footer></Footer>

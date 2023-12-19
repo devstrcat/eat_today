@@ -7,7 +7,7 @@ import MealBig from "../components/meal/MealBig";
 import { getMeal } from "../api/meal/meal_api";
 
 const Index = () => {
-  // 상태를 사용하여 버튼 클릭 여부를 추적
+  // 버튼 클릭 여부
   const [buttonClicked, setButtonClicked] = useState(false);
   const buttonClick = () => {
     setButtonClicked(!buttonClicked);
@@ -23,16 +23,17 @@ const Index = () => {
     handleClickGet();
   }, []);
 
+  // 검색 
   const handleSearch = searchText => {
     const formatSearchText = searchText.toLowerCase();
 
     const filterItems = data.filter(item => {
-      // tags가 배열인 경우 각 태그에 대해 검색을 수행합니다.
+      // tags가 배열인 경우
       const isTagMatch = Array.isArray(item.tags)
         ? item.tags.some(tag => tag.toLowerCase().includes(formatSearchText))
         : false;
 
-      // title이 문자열인지 확인합니다.
+      // title이 문자열인지 확인
       const isTitleMatch =
         item.title &&
         typeof item.title === "string" &&

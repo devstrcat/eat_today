@@ -15,7 +15,7 @@ const CancelButton = () => {
     <div>
         <CancelButtonDiv  onClick={handleCancel}>
           <CancelButtonIcon>
-            <img src="/images/cancel_icon.svg" />
+            <img src="/images/write/cancel_icon.svg" />
           </CancelButtonIcon>
         </CancelButtonDiv>
     </div>
