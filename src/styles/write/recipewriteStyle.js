@@ -12,86 +12,10 @@ export const RecipeWriteTop = styled.div`
   background-color: #fff;
 `;
 
-export const CancelButton = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-`;
-
-export const CancelButtonIcon = styled.div`
-  position: relative;
-  width: 34px;
-  height: 34px;
-  display: block;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 18px;
-  margin-bottom: 22px;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
-  background: #fff;
-  border-radius: 100px;
-`;
-
-export const AddImages = styled.div`
-  position: relative;
-  width: 320px;
+export const TextBoxes = styled.form`
   display: flex;
   justify-content: center;
-`;
-
-export const AddImagesLeft = styled.div`
-  position: relative;
-  width: 87px;
-  height: 77px;
-  overflow: hidden;
-  background: #ffebd0;
-  border-radius: 19px;
-
-  img {
-    width: 87px;
-    height: 77px;
-  }
-`;
-
-export const AddImagesMid = styled.div`
-  width: 87px;
-  height: 77px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-right: 8px;
-  margin-left: 8px;
-  background: #ffebd0;
-  border-radius: 19px;
-
-  img {
-    width: 20px;
-    height: 20px;
-  }
-`;
-
-export const AddImagesRight = styled.div`
-  position: relative;
-  width: 87px;
-  height: 77px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: #ffebd0;
-  border-radius: 19px;
-
-  img {
-    width: 20px;
-    height: 20px;
-  }
-`;
-export const TextBoxes = styled.div`
-  position: relative;
-  text-align: center;
+  flex-wrap: wrap;
 
   .textboxes-title {
     position: relative;
@@ -121,7 +45,8 @@ export const TextBoxHashTags = styled.div`
   position: relative;
   display: flex;
   margin-top: 22px;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 0 10px;
   width: 100%;
 
   .textboxes-tags-today {
@@ -134,15 +59,6 @@ export const TextBoxHashTags = styled.div`
     border-radius: 10px;
   }
 
-  .textboxes-tags-chococake {
-    position: relative;
-    height: 44px;
-    margin-left: 5px;
-    padding-left: 8px;
-    border: 0;
-    background: #ffebd0;
-    border-radius: 10px;
-  }
   .textboxes-tags-add {
     position: relative;
     display: flex;
@@ -150,7 +66,6 @@ export const TextBoxHashTags = styled.div`
     align-items: center;
     width: 44px;
     height: 44px;
-    margin-left: 5px;
     border: 0;
     background: #ffebd0;
     border-radius: 10px;
@@ -163,10 +78,13 @@ export const TextBoxHashTags = styled.div`
 `;
 
 export const RecipeComment = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   .textboxes-recipe {
     position: relative;
-    width: 279px;
-    height: 151px;
+    width: 280px;
+    height: 150px;
     margin-top: 36px;
     padding-left: 8px;
     border: 0;
@@ -177,8 +95,8 @@ export const RecipeComment = styled.div`
 
   .textboxes-comment {
     position: relative;
-    width: 279px;
-    height: 151px;
+    width: 280px;
+    height: 150px;
     margin-top: 22px;
     padding-left: 8px;
     border: 0;
@@ -191,8 +109,9 @@ export const RecipeComment = styled.div`
 export const WriteButtons = styled.div`
   position: relative;
   display: flex;
+  width: 100%;
   justify-content: space-evenly;
-  margin-top: 40px;
+  margin: 20px 0;
 
   .restart-bt {
     position: relative;
@@ -205,7 +124,7 @@ export const WriteButtons = styled.div`
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background-color: #fff;
     border-radius: 100px;
-
+    cursor: pointer;
     img {
       width: 30px;
       height: 30px;
@@ -216,14 +135,13 @@ export const WriteButtons = styled.div`
     width: 40px;
     height: 40px;
     display: flex;
-
     gap: 10px;
     align-items: center;
     justify-content: center;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #ffebd0;
     border-radius: 100px;
-
+    cursor: pointer;
     img {
       width: 30px;
       height: 30px;

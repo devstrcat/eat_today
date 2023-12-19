@@ -10,6 +10,7 @@ const MealBig = () => {
         <NoticeBoardBig></NoticeBoardBig>
         <NoticeBoardBig></NoticeBoardBig>
         <NoticeBoardBig></NoticeBoardBig>
+        <NoticeBoardBig></NoticeBoardBig>
       </SmallWrap>
     </div>
   );

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-const Search = () => {
+const Search = ({handleSubmit}) => {
   const HeaderStyle = styled.header`
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ const Search = () => {
 
   return (
     <HeaderStyle>
-      <SearchForm method="post" action="">
+      <SearchForm onSubmit={handleSubmit}>
         <SearchInput
           type="text"
           id="searchTxt"

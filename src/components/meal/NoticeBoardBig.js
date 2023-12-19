@@ -8,10 +8,10 @@ import {
 } from "../../styles/meal/noticeboardbig";
 import { Link } from "react-router-dom";
 
-const NoticeBoard = () => {
+const NoticeBoardBig = () => {
   return (
     <div>
-      <Link to={"more"}>
+      <Link to={"/meal/more"}>
         <NoticeBoardStyle>
           <NoticeBoardTitle>
             <h2>초코케이크맛있다</h2>
@@ -35,4 +35,4 @@ const NoticeBoard = () => {
   );
 };
 
-export default NoticeBoard;
+export default NoticeBoardBig;

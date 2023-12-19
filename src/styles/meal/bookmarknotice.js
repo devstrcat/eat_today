@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const NoticeBoardDiv = styled.div`
+export const BookMarkNoticeDiv = styled.div`
   width: 128px;
   margin: 10px 0 0;
   background: var(--brand-color2);
@@ -8,7 +8,7 @@ export const NoticeBoardDiv = styled.div`
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
 `;
 
-export const NoticeBoardPics = styled.div`
+export const BookMarkNoticePics = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -31,7 +31,7 @@ export const BookMarkIcon = styled.img`
   transform: translate(100px, -50%);
 `
 
-export const NoticeBoardTags = styled.div`
+export const BookMarkNoticeTags = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;

@@ -1,40 +1,52 @@
 import styled from "@emotion/styled";
 
-export const MoreWrap = styled.div`
-  padding-bottom: 120px;
-`;
 export const HeaderWrap = styled.div`
   display: flex;
   padding: 20px 27px 0;
   justify-content: space-between;
+  align-items: center;
 `;
 export const Title = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
-  text-align: center;
   position: relative;
   border: none;
   border-radius: 20px;
   width: 150px;
   height: 40px;
-  padding-top: 10px;
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 export const BtWrap = styled.div`
-  width: 60px;
+  width: 80px;
+  height: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .bookmark {
+    width: 20px;
+    height: 20px;
+    background: url("/images/common/book_mark_icon.svg") no-repeat center;
+    cursor: pointer;
+  }
+  .bookmarkhover {
+    width: 20px;
+    height: 20px;
+    background: url("/images/common/book_mark_icon_click.svg") no-repeat center;
+    cursor: pointer;
+  }
   .edit {
-    width: 18px;
-    height: 18px;
-    background: url("/images/edit_icon.svg") no-repeat;
+    width: 20px;
+    height: 20px;
+    background: url("/images/edit_icon.svg") no-repeat center;
     background-size: cover;
     cursor: pointer;
   }
   .trash {
-    width: 25px;
-    height: 25px;
-    background: url("/images/trash_icon.svg") no-repeat;
+    width: 20px;
+    height: 20px;
+    background: url("/images/trash_icon.svg") no-repeat center;
     background-size: cover;
     cursor: pointer;
   }
@@ -56,8 +68,7 @@ export const HashTagWrap = styled.div`
   flex-wrap: wrap;
   gap: 10px;
 
-  .hashtag_1,
-  .hashtag_3 {
+  .hashtag {
     padding: 0 10px;
     height: 25px;
     border-radius: 20px;
@@ -65,15 +76,8 @@ export const HashTagWrap = styled.div`
     font-size: 12px;
     padding-top: 8px;
   }
-  .hashtag_2,
-  .hashtag_4 {
-    padding: 0 10px;
-    height: 25px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    font-size: 12px;
-    padding-top: 8px;
-    background-color: #ffebd0;
+  .hashtag:nth-child(2n) {
+    background-color: var(--brand-color2);
   }
 `;
 export const ContentWrap = styled.div`

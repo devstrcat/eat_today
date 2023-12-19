@@ -12,6 +12,7 @@ export const FooterDiv = styled.div`
   justify-content: space-around;
   border-radius: 20px 20px 0 0;
   background-color: #fdb456;
+  z-index: 100;
 `;
 export const FooterImg = styled.img`
   object-fit: cover;
