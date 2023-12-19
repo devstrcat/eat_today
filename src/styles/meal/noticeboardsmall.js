@@ -17,6 +17,7 @@ export const NoticeBoardPics = styled.div`
   width: 100%;
   overflow: hidden;
   border-radius: 9px;
+  background-color: #fff;
   img {
     width: 100%;
     height: 100px;
@@ -29,7 +30,7 @@ export const BookMarkIcon = styled.img`
   position: absolute;
   z-index: 5;
   transform: translate(100px, -50%);
-`
+`;
 
 export const NoticeBoardTags = styled.div`
   position: relative;

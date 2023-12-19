@@ -17,29 +17,35 @@ const Index = () => {
   const [filteredData, setFilteredData] = useState([]);
 
   const handleClickGet = () => {
-    getMeal(1, 10, 0, setData);
-  }
+    getMeal(1, 20, 0, setData);
+  };
   useEffect(() => {
     handleClickGet();
   }, []);
 
-  const handleSearch = (searchText) => {
-    const filteredItems = data.filter((item) => {
+  const handleSearch = searchText => {
+    const formatSearchText = searchText.toLowerCase();
+
+    const filterItems = data.filter(item => {
+      // tags가 배열인 경우 각 태그에 대해 검색을 수행합니다.
+      const isTagMatch = Array.isArray(item.tags)
+        ? item.tags.some(tag => tag.toLowerCase().includes(formatSearchText))
+        : false;
+
       // title이 문자열인지 확인합니다.
       const isTitleMatch =
         item.title &&
-        typeof item.title === 'string' &&
-        item.title.toLowerCase().includes(searchText.toLowerCase());
-  
-      // 검색어와 일치하는 경우를 필터링합니다.
-      return isTitleMatch;
-    });
-  
-    setFilteredData(filteredItems);
-  };
-  
+        typeof item.title === "string" &&
+        item.title.toLowerCase().includes(formatSearchText);
 
-  const handleSubmit = (e) => {
+      // 검색어와 일치하는 경우
+      return isTagMatch || isTitleMatch;
+    });
+
+    setFilteredData(filterItems);
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
     const searchText = e.target.searchTxt.value;
     handleSearch(searchText);
@@ -53,7 +59,11 @@ const Index = () => {
           buttonClicked={buttonClicked}
           buttonClick={buttonClick}
         ></MealViewBt>
-        {buttonClicked ? <MealBig /> : <MealSmall data={filteredData.length > 0 ? filteredData : data}/>}
+        {buttonClicked ? (
+          <MealBig />
+        ) : (
+          <MealSmall data={filteredData.length > 0 ? filteredData : data} />
+        )}
       </main>
       <Footer></Footer>
     </div>

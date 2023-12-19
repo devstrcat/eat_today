@@ -1,4 +1,3 @@
-import React from "react";
 import React, { useState } from 'react'
 import Footer from '../components/Footer';
 import { BtWrap, CakeImg, ContentWrap, HashTagWrap, HeaderWrap, MoreMainWrap, Title } from '../styles/more/moreStyle';

@@ -20,7 +20,7 @@ const NoticeBoardSmall = props => {
           </NoticeBoardPics>
           <NoticeBoardTags>
             {data.tags.map((tags, index) => (
-              <span key={index}>{tags}</span>
+              <span key={index}>#{tags}</span>
             ))}
           </NoticeBoardTags>
         </NoticeBoardDiv>
