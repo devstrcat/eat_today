@@ -26,9 +26,15 @@ export const NoticeBoardTitle = styled.div`
 export const NoticeBoardPics = styled.div`
   position: relative;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   border-radius: 20px;
+  background-color: #fff;
   img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 `;

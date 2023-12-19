@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   NoticeBoardPics,
   NoticeBoardReview,
@@ -6,33 +6,39 @@ import {
   NoticeBoardTags,
   NoticeBoardTitle,
 } from "../../styles/meal/noticeboardbig";
-import { Link } from "react-router-dom";
+import { getMleal } from "../../api/meal/big_api";
 
-const NoticeBoardBig = () => {
+const initData = [];
+
+const NoticeBoard = () => {
+  //목록 get
+  const [mealData, setMealData] = useState(initData);
+
+  //딱 한번 호출한다.(시점,화면이 보일떄)
+  useEffect(() => {
+    getMleal(setMealData);
+  }, []);
+
   return (
     <div>
-      <Link to={"/meal/more"}>
-        <NoticeBoardStyle>
+      {mealData.map(item => (
+        <NoticeBoardStyle key={item.imeal}>
           <NoticeBoardTitle>
-            <h2>초코케이크맛있다</h2>
+            <h2>{item.title}</h2>
           </NoticeBoardTitle>
           <NoticeBoardPics>
-            <img src="/images/choco.png" alt="사진을 넣어주세요" />
+            <img src={item.pics[0]} alt="사진을 넣어주세요" />
           </NoticeBoardPics>
           <NoticeBoardTags>
-            <span>#초콜릿</span>
-            <span>#테그</span>
-            <span>#힘들다</span>
-            <span>#난뭐했니</span>
-            <span>#하앙집갈레</span>
+            <span>#{item.tags[0]}</span>
           </NoticeBoardTags>
           <NoticeBoardReview>
-            <p>맛있는 초코케이크살찌겠다.</p>
+            <p>{item.reciew}</p>
           </NoticeBoardReview>
         </NoticeBoardStyle>
-      </Link>
+      ))}
     </div>
   );
 };
 
-export default NoticeBoardBig;
+export default NoticeBoard;
