@@ -46,33 +46,27 @@ export const MoreMainWrap = styled.div`
   padding-top: 20px;
 `;
 export const CakeImg = styled.img`
+  width: 266px;
+  height: 236px;
   border-radius: 20px;
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
-export const HashTagWrap = styled.div`
+export const HashTagWrap = styled.ul`
   width: 266px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 
-  .hashtag_1,
-  .hashtag_3 {
+  li {
     padding: 0 10px;
     height: 25px;
     border-radius: 20px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
     font-size: 12px;
-    padding-top: 8px;
-  }
-  .hashtag_2,
-  .hashtag_4 {
-    padding: 0 10px;
-    height: 25px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    font-size: 12px;
-    padding-top: 8px;
-    background-color: #ffebd0;
+    padding-top: 5px;
+    &:nth-child(2n) {
+      background-color: #ffebd0;
+    }
   }
 `;
 export const ContentWrap = styled.div`
