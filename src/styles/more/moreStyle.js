@@ -25,16 +25,17 @@ export const BtWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   .edit {
-    width: 20px;
-    height: 20px;
-    background: url("/images/edit_icon.svg");
+    width: 18px;
+    height: 18px;
+    background: url("/images/edit_icon.svg") no-repeat;
+    background-size: cover;
     cursor: pointer;
   }
-
   .trash {
-    width: 20px;
-    height: 20px;
-    background: url("/images/trash_icon.svg");
+    width: 25px;
+    height: 25px;
+    background: url("/images/trash_icon.svg") no-repeat;
+    background-size: cover;
     cursor: pointer;
   }
 `;

@@ -12,6 +12,10 @@ const MealSmall = () => {
         <NoticeBoardSmall></NoticeBoardSmall>
         <NoticeBoardSmall></NoticeBoardSmall>
         <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
+        <NoticeBoardSmall></NoticeBoardSmall>
       </SmallWrap>
     </div>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/recipewrite.css";
 import Footer from "../components/Footer";
 import {
   AddImages,
@@ -14,15 +13,23 @@ import {
   TextBoxHashTags,
   TextBoxes,
   WriteButtons,
-} from "../styles/recipewriteStyle";
+} from "../styles/write/recipewriteStyle";
+import { useNavigate } from "react-router";
 
 const RecipeWrite = () => {
+  const navigate = useNavigate();
+
+  const handleClickBack = () => {
+    // 뒤로 이동
+    navigate(-1);
+  };
+
   return (
     <RecipeWriteWrap>
       <RecipeWriteTop>
         {/* 상단 취소 버튼 */}
         <CancelButton>
-          <CancelButtonIcon>
+          <CancelButtonIcon onClick={handleClickBack}>
             <img src="/images/cancel_icon.svg" />
           </CancelButtonIcon>
         </CancelButton>
@@ -61,14 +68,17 @@ const RecipeWrite = () => {
               placeholder="#크리스마스초코케익"
             ></input>
             <div className="textboxes-tags-add">
-              <img src="/images/add_icon.svg"  />
+              <img src="/images/add_icon.svg" />
             </div>
           </TextBoxHashTags>
 
           {/* 레시피 기록 및 다이어리 코멘트 */}
           <RecipeComment>
-          <input className="textboxes-recipe" placeholder="Recipe" />
-          <input className="textboxes-comment" placeholder="Diary comment..." />
+            <input className="textboxes-recipe" placeholder="Recipe" />
+            <input
+              className="textboxes-comment"
+              placeholder="Diary comment..."
+            />
           </RecipeComment>
         </TextBoxes>
 
@@ -78,11 +88,10 @@ const RecipeWrite = () => {
             <img src="/images/reset_icon.png" />
           </div>
           <div className="complete-bt">
-            <img src="/images/check_icon.svg"  />
+            <img src="/images/check_icon.svg" />
           </div>
-  
         </WriteButtons>
-        
+
         <Footer></Footer>
       </RecipeWriteTop>
     </RecipeWriteWrap>

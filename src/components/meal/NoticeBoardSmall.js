@@ -6,7 +6,7 @@ import {
 } from "../../styles/meal/noticeboardsmall";
 import { Link } from "react-router-dom";
 
-const NoticeBoard = () => {
+const NoticeBoardSmall = () => {
   return (
     <div>
       <Link to={"more"}>
@@ -27,4 +27,4 @@ const NoticeBoard = () => {
   );
 };
 
-export default NoticeBoard;
+export default NoticeBoardSmall;

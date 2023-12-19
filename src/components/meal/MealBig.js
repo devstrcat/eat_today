@@ -7,6 +7,9 @@ const MealBig = () => {
     <div>
       <SmallWrap>
         <NoticeBoardBig></NoticeBoardBig>
+        <NoticeBoardBig></NoticeBoardBig>
+        <NoticeBoardBig></NoticeBoardBig>
+        <NoticeBoardBig></NoticeBoardBig>
       </SmallWrap>
     </div>
   );

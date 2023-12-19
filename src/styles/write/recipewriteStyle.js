@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 export const RecipeWriteWrap = styled.div`
   position: relative;
   width: 320px;
-  height: 960px;
   display: flex;
   justify-content: space-around;
 `;
@@ -193,7 +192,7 @@ export const WriteButtons = styled.div`
   position: relative;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 53px;
+  margin-top: 40px;
 
   .restart-bt {
     position: relative;
