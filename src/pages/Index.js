@@ -69,10 +69,7 @@ const Index = () => {
           buttonClicked={buttonClicked}
           buttonClick={buttonClick}
         ></MealViewBt>
-        {buttonClicked ? (
-          <MealBig data={data}/>
-        ) : (
-        {buttonClicked ? <MealBig /> : <MealSmall data={data} />}
+        {buttonClicked ? <MealBig data={data} /> : <MealSmall data={data} />}
       </main>
       <Footer onHomeButtonClick={handleHomeButtonClick}></Footer>
     </div>
