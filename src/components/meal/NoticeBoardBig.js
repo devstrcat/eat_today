@@ -33,7 +33,7 @@ const NoticeBoard = () => {
             <span>#{item.tags[0]}</span>
           </NoticeBoardTags>
           <NoticeBoardReview>
-            <p>{item.reciew}</p>
+            <p>{item.review}</p>
           </NoticeBoardReview>
         </NoticeBoardStyle>
       ))}

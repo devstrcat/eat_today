@@ -59,6 +59,7 @@ export const NoticeBoardReview = styled.div`
   height: 43px;
   word-break: break-all;
   border: none;
+  overflow-y: auto;
   p {
     padding: 5px;
     position: relative;
