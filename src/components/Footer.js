@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FooterDiv, FooterImg } from "../styles/footer";
 
-const Footer = () => {
+const Footer = ({ onHomeButtonClick }) => {
   return (
     <footer>
       <FooterDiv>
-        <Link to="/meal">
+        <Link to="/meal" onClick={onHomeButtonClick}>
           <FooterImg src="/images/common/home.svg"></FooterImg>
         </Link>
         <Link to="/meal/write">
