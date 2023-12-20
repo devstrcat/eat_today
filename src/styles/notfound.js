@@ -16,7 +16,7 @@ export const Boxs = styled.div`
 export const Phrases = styled.h2`
   color: #fff;
   font-family: NanumGothic;
-  font-size: 65px;
+  font-size: 54px;
 `;
 export const Content = styled.p`
   color: #fff;
