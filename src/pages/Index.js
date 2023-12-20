@@ -61,7 +61,7 @@ const Index = () => {
           buttonClick={buttonClick}
         ></MealViewBt>
         {buttonClicked ? (
-          <MealBig />
+          <MealBig data={data}/>
         ) : (
           <MealSmall data={filteredData.length > 0 ? filteredData : data} />
         )}

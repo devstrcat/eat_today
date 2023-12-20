@@ -8,13 +8,13 @@ const NotFound = () => {
     <div>
       <Cover>
         <Boxs>
-          <Phrases>404</Phrases>
+          <Phrases>404 ERROR</Phrases>
           <Content>
-            찾을 수 없는 페이지입니다.
+            원하시는 결과를 찯을수 없습니다.
             <br />
-            요청하신 페이지가 사라졌거나
+            올바른 URL 을 입력하였는지 확인하세요.
             <br />
-            잘못된 경로를 이용하셨어요
+            자세한 내용은 사이트 소유자에게 문의 하시길 바랍니다.
           </Content>
           <Link to={"/meal"}>
             <Back>홈으로 이동</Back>
