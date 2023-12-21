@@ -12,7 +12,7 @@ const NoticeBoardSmall = props => {
 
   return (
     <div>
-      <Link to={"/meal/more"}>
+      <Link to={`/meal/more/${data.imeal}`}>
         <NoticeBoardDiv>
           {props.bookmark ? <BookMarkIcon /> : null}
           <NoticeBoardPics>

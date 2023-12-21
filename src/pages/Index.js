@@ -17,7 +17,7 @@ const Index = () => {
   const [filteredData, setFilteredData] = useState([]);
 
   const handleClickGet = () => {
-    getMeal(1, 20, 0, setData);
+    getMeal(1, 200, 0, setData);
   };
   useEffect(() => {
     handleClickGet();

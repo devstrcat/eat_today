@@ -8,10 +8,12 @@ import {
 } from "../../styles/meal/noticeboardbig";
 import { Link } from "react-router-dom";
 
-const NoticeBoardBig = () => {
+const NoticeBoardBig = props => {
+  const { data } = props;
+
   return (
     <div>
-      <Link to={"/meal/more"}>
+      <Link to={`/meal/more${data.imeal}`}>
         <NoticeBoardStyle>
           <NoticeBoardTitle>
             <h2>초코케이크맛있다</h2>
