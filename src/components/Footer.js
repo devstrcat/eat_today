@@ -15,7 +15,7 @@ const Footer = ({ onHomeButtonClick }) => {
         <Link to="/meal/bookmark">
           <FooterImg src="/images/common/book_mark.svg"></FooterImg>
         </Link>
-        <Link to="/">
+        <Link to="/meal/member">
           <FooterImg src="/images/common/logo.svg"></FooterImg>
         </Link>
       </FooterDiv>

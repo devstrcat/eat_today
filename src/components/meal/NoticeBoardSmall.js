@@ -12,7 +12,7 @@ const NoticeBoardSmall = props => {
 
   return (
     <div>
-      <Link to={"/meal/more"}>
+      <Link to={`/meal/more/${data.imeal}`}>
         <NoticeBoardDiv>
           <NoticeBoardPics>
             <img src={data.pics[0]} alt="사진을 넣어주세요" />
