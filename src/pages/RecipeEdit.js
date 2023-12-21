@@ -19,12 +19,6 @@ const RecipeEdit = () => {
   return (
     <RecipeWriteWrap>
       <RecipeWriteTop>
-        {/* 상단 취소 버튼 */}
-        <CancelButton>
-          <CancelButtonIcon>
-            <img src="/images/cancel_icon.svg" />
-          </CancelButtonIcon>
-        </CancelButton>
         {/* 이미지 추가 */}
         <AddImages>
           <AddImagesLeft>

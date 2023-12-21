@@ -10,15 +10,11 @@ import {
 const BookMarkNotice = props => {
   const { data } = props;
 
-  if (props.bookmark !== 1) {
-    return null;
-  }
-
   return (
     <div>
-      <Link to={"/meal/more"}>
+      <Link to={`/meal/more/${data.imeal}`}>
         <BookMarkNoticeDiv>
-          {props.bookmark ? <BookMarkIcon /> : null}
+          <BookMarkIcon />
           <BookMarkNoticePics>
             <img src={data.pics} alt="사진을 넣어주세요" />
           </BookMarkNoticePics>

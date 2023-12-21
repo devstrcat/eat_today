@@ -34,7 +34,8 @@ const SearchButton = styled.button`
   cursor: pointer;
 `;
 
-const Search = ({ searchTerm, onInputChange, onButtonClick }) => {
+const Search = props => {
+  
   return (
     <HeaderStyle>
       <SearchForm>
@@ -42,11 +43,17 @@ const Search = ({ searchTerm, onInputChange, onButtonClick }) => {
           type="text"
           id="searchTxt"
           name="search"
-          placeholder="텍스트를 입력하세요."
-          value={searchTerm}
-          onChange={onInputChange}
-        ></SearchInput>
-        <SearchButton type="submit" onClick={onButtonClick}></SearchButton>
+          maxLength="10"
+          placeholder="제목으로 찾기, 태그로 찾기"
+          value={props.searchText}
+          onChange={props.handleChange}
+        >
+          {props.setsearchText}
+        </SearchInput>
+        <SearchButton
+          type="submit"
+          onClick={props.handleSearchReset}
+        ></SearchButton>
       </SearchForm>
     </HeaderStyle>
   );

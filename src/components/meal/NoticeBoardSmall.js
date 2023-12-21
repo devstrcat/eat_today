@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  BookMarkIcon,
   NoticeBoardDiv,
   NoticeBoardPics,
   NoticeBoardTags,

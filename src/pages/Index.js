@@ -9,60 +9,70 @@ import { getMeal } from "../api/meal/meal_api";
 const Index = () => {
   // button
   const [buttonClicked, setButtonClicked] = useState(false);
+  // 기본 데이터
+  const [data, setData] = useState([]);
+  // 검색 저장
+  const [searchText, setSearchText] = useState("");
+
+  // 버튼
   const buttonClick = () => {
     setButtonClicked(!buttonClicked);
   };
-  // 기본 데이터
-  const [data, setData] = useState([]);
-  // 검색어 저장
-  const [searchText, setSearchText] = useState("");
+  // 변수
+  const storageSearchText = sessionStorage.getItem("searchText");
+  const UseSearch = storageSearchText || searchText;
 
+  // 검색 데이터 연동
   const handleClickGet = () => {
-    const storedSearchText = localStorage.getItem("searchText");
-    const termToUse = storedSearchText || searchText;
-    getMeal(1, 20, 0, setData, termToUse);
+    getMeal(1, 50, 0, setData, UseSearch);
   };
-
   const resetClickGet = () => {
     getMeal(1, 20, 0, setData);
   };
 
-  useEffect(() => {
-    const storedSearchText = localStorage.getItem("searchText");
-    if (storedSearchText) {
-      setSearchText(storedSearchText);
-    }
-
-    handleClickGet();
-  }, []);
-
-  const handleSearchInputChange = event => {
+  // 검색 조건문
+  const handleChange = event => {
     const value = event.target.value;
-    setSearchText(value);
-    localStorage.setItem("searchText", value);
+
+    const isValue =
+      /^[ㄱ-ㅎ가-힣a-zA-Z#]([ㄱ-ㅎ가-힣a-zA-Z]*[^aeiouㄱ-ㅎ\s~`!@#$%^&*()-_=+[\]{}|;:'",.<>/?]*)?$/.test(
+        value,
+      );
+
+    if (isValue || !value.trim()) {
+      setSearchText(value);
+      sessionStorage.setItem("searchText", value);
+    }
   };
 
-  const handleSearchButtonClick = () => {
-    if (searchText.trim() === "") {
-      // 검색어가 비어있을 때 처리
-      handleHomeButtonClick();
+  // 검색 초기화
+  const handleSearchReset = () => {
+    if (!searchText.trim()) {
+      handleHomeReset();
     } else {
       handleClickGet();
     }
   };
-
-  const handleHomeButtonClick = () => {
+  const handleHomeReset = () => {
     setSearchText("");
-    localStorage.setItem("searchText", "");
-    resetClickGet(); // setData를 빈 배열로 업데이트
+    sessionStorage.setItem("searchText", "");
+    resetClickGet();
   };
+
+  useEffect(() => {
+    if (storageSearchText) {
+      setSearchText(storageSearchText);
+    }
+    handleClickGet();
+  }, []);
 
   return (
     <div>
       <Search
         searchText={searchText}
-        onInputChange={handleSearchInputChange}
-        onButtonClick={handleSearchButtonClick}
+        handleChange={handleChange}
+        handleSearchReset={handleSearchReset}
+        setSearchText={setSearchText}
       ></Search>
       <main>
         <MealViewBt
@@ -71,7 +81,7 @@ const Index = () => {
         ></MealViewBt>
         {buttonClicked ? <MealBig data={data} /> : <MealSmall data={data} />}
       </main>
-      <Footer onHomeButtonClick={handleHomeButtonClick}></Footer>
+      <Footer handleHomeReset={handleHomeReset}></Footer>
     </div>
   );
 };
