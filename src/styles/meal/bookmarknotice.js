@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const BookMarkNoticeDiv = styled.div`
   width: 128px;
+  height: 153px;
   margin: 10px 0 0;
   background: var(--brand-color2);
   padding: 5px;

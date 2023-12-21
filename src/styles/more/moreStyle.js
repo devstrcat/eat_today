@@ -57,12 +57,17 @@ export const MoreMainWrap = styled.div`
   align-items: center;
   gap: 20px;
   padding-top: 20px;
+  .swiper {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 266px;
+    margin: 0 auto;
+  }
 `;
 export const CakeImg = styled.img`
   width: 266px;
   height: 236px;
-  border-radius: 20px;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 export const HashTagWrap = styled.ul`
   width: 266px;
@@ -77,7 +82,7 @@ export const HashTagWrap = styled.ul`
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
     font-size: 12px;
     padding-top: 5px;
-    &:nth-child(2n) {
+    &:nth-of-type(2n) {
       background-color: #ffebd0;
     }
   }

@@ -9,29 +9,38 @@ import {
   MoreMainWrap,
   Title,
 } from "../styles/more/moreStyle";
-import Search from "../components/Search";
 import { getMore } from "../api/more_api";
+import { useParams } from "react-router";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// 서버에서 돌려주는 값
+const initMoreData = {
+  imeal: 0,
+  title: "",
+  review: "",
+  createdAt: "",
+  pics: [],
+  tags: [],
+  recipe: "",
+  ingredient: "",
+  bookMark: 0,
+};
 const RecipeMore = () => {
-  const [more, setMore] = useState(
-    // initialize = 초기값 셋팅
-    {
-      imeal: "",
-      title: "",
-      review: "",
-      createdAt: "",
-      pics: [],
-      tags: [],
-      recipe: "",
-      ingredient: "",
-      bookMark: 0,
-    },
-  );
+  const param = useParams();
+  const imeal = parseInt(param.imeal);
+
+  const [moreData, setMoreData] = useState([initMoreData]);
 
   // 최초 렌더링 시 실행
   useEffect(() => {
     // setMore(getMore());
-    getMore(setMore);
+    getMore(imeal, setMoreData);
   }, []);
 
   // 북마크 버튼
@@ -42,9 +51,8 @@ const RecipeMore = () => {
 
   return (
     <div>
-      <Search></Search>
       <HeaderWrap>
-        <Title>{more.title}</Title>
+        <Title>{moreData.title}</Title>
         <BtWrap>
           <button
             className={isClicked ? "bookmarkhover" : "bookmark"}
@@ -55,16 +63,23 @@ const RecipeMore = () => {
         </BtWrap>
       </HeaderWrap>
       <MoreMainWrap>
-        <CakeImg src={more.pics} />
+        {/* 사진이 2장이다 대표 이미지[0] 슬라이드 고민 [1] */}
+        <Swiper pagination={true} modules={[Pagination]} className="mySwipper">
+          {moreData.pics &&
+            moreData.pics.map((pic, index) => (
+              <SwiperSlide key={index}>
+                <CakeImg src={pic} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
         <HashTagWrap>
-          {more.tags.map((item, index) => {
-            return <li key={index}>{item}</li>;
-          })}
+          {moreData.tags &&
+            moreData.tags.map((item, index) => <li key={index}>{item}</li>)}
         </HashTagWrap>
         <ContentWrap>
-          <div className="ingredient">{more.ingredient}</div>
-          <div className="recipe">{more.recipe}</div>
-          <div className="comment">{more.review}</div>
+          <div className="ingredient">{moreData.ingredient}</div>
+          <div className="recipe">{moreData.recipe}</div>
+          <div className="comment">{moreData.review}</div>
         </ContentWrap>
       </MoreMainWrap>
       <Footer />

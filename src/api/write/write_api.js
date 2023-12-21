@@ -8,14 +8,14 @@ export const postWrite = async setWriteData => {
     console.log(res.data);
   } catch (error) {
     // console.log(error);
-    
+
     setWriteData([
       {
         title: "제목 입력.",
         ingredient: "재료 입력.",
         recipe: "레시피",
         review: "리뷰",
-        pics: ["사진", "picadd1" ,"picadd2","tagadd"],
+        pics: ["사진", "picadd1", "picadd2", "tagadd"],
         tags: ["태그", "태그2"],
       },
     ]);

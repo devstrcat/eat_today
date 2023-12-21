@@ -2,6 +2,7 @@
 :root {
   --brand-color: #fdb456;
   --brand-color2: #ffebd0;
+  --swiper-theme-color: #fdb456;
 }
 
 * {

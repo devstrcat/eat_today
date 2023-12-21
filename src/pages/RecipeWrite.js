@@ -21,11 +21,11 @@ const RecipeWrite = () => {
   // 한번 호출한다.
   useEffect(() => {
     postWrite(setWriteData);
-  });
+  }, [setWriteData]);
   return (
     <div>
       {writeData.map(item => (
-        <RecipeWriteWrap key={item.title}>
+        <RecipeWriteWrap key={item.imeal}>
           <RecipeWriteTop>
             {/* 상단 취소 버튼 */}
             <CancelButton></CancelButton>
@@ -57,7 +57,7 @@ const RecipeWrite = () => {
                   placeholder={item.tags[1]}
                 ></input>
                 <div className="textboxes-tags-right">
-                  <img src={item.pics[4]} />
+                  <img src={item.pics[0]} />
                 </div>
               </TextBoxHashTags>
 

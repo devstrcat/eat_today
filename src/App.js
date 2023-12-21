@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/" element={<Intro />} />
         <Route path="/meal" element={<Index />}></Route>
         <Route path="/meal/write" element={<RecipeWrite />}></Route>
-        <Route path="/meal/more" element={<RecipeMore />} />
+        <Route path="/meal/more/:imeal" element={<RecipeMore />} />
         <Route path="/meal/bookmark" element={<BookMark />}></Route>
         <Route path="/meal/edit" element={<RecipeEdit />}></Route>
         <Route path="*" element={<NotFound />} />
