@@ -14,9 +14,8 @@ const NoticeBoardSmall = props => {
     <div>
       <Link to={`/meal/more/${data.imeal}`}>
         <NoticeBoardDiv>
-          {props.bookmark ? <BookMarkIcon /> : null}
           <NoticeBoardPics>
-            <img src={data.pics} alt="사진을 넣어주세요" />
+            <img src={data.pics[0]} alt="사진을 넣어주세요" />
           </NoticeBoardPics>
           <NoticeBoardTags>
             {data.tags.map((tags, index) => (

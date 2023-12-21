@@ -6,35 +6,28 @@ import {
   NoticeBoardTags,
   NoticeBoardTitle,
 } from "../../styles/meal/noticeboardbig";
-import { Link } from "react-router-dom";
 
-const NoticeBoardBig = props => {
-  const { data } = props;
-
+const NoticeBoard = ({ data }) => {
   return (
     <div>
-      <Link to={`/meal/more${data.imeal}`}>
-        <NoticeBoardStyle>
-          <NoticeBoardTitle>
-            <h2>초코케이크맛있다</h2>
-          </NoticeBoardTitle>
-          <NoticeBoardPics>
-            <img src="/images/choco.png" alt="사진을 넣어주세요" />
-          </NoticeBoardPics>
-          <NoticeBoardTags>
-            <span>#초콜릿</span>
-            <span>#테그</span>
-            <span>#힘들다</span>
-            <span>#난뭐했니</span>
-            <span>#하앙집갈레</span>
-          </NoticeBoardTags>
-          <NoticeBoardReview>
-            <p>맛있는 초코케이크살찌겠다.</p>
-          </NoticeBoardReview>
-        </NoticeBoardStyle>
-      </Link>
+      <NoticeBoardStyle>
+        <NoticeBoardTitle>
+          <h2>{data.title}</h2>
+        </NoticeBoardTitle>
+        <NoticeBoardPics>
+          <img src={data.pics[0]} alt="사진을 넣어주세요" />
+        </NoticeBoardPics>
+        <NoticeBoardTags>
+          {data.tags.map((tags, index) => (
+            <span key={index}>#{tags}</span>
+          ))}
+        </NoticeBoardTags>
+        <NoticeBoardReview>
+          <p>{data.review}</p>
+        </NoticeBoardReview>
+      </NoticeBoardStyle>
     </div>
   );
 };
 
-export default NoticeBoardBig;
+export default NoticeBoard;

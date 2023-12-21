@@ -26,9 +26,15 @@ export const NoticeBoardTitle = styled.div`
 export const NoticeBoardPics = styled.div`
   position: relative;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   border-radius: 20px;
+  background-color: #fff;
   img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 `;
@@ -53,6 +59,7 @@ export const NoticeBoardReview = styled.div`
   height: 43px;
   word-break: break-all;
   border: none;
+  overflow-y: auto;
   p {
     padding: 5px;
     position: relative;
