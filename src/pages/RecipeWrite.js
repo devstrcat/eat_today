@@ -8,81 +8,187 @@ import {
   TextBoxes,
   WriteButtons,
 } from "../styles/write/recipewriteStyle";
-import CancelButton from "../components/write/CancelButton";
 import AddImages from "../components/write/AddImages";
-import { postWrite } from "../api/write/write_api";
+import { postMeal } from "../api/song_api/song_api";
 
-const initData = [];
-
+const initData = {
+  title: "",
+  ingredient: "",
+  recipe: "",
+  review: "",
+  pics: [],
+  tags: [],
+};
 const RecipeWrite = () => {
-  // 목록 Post
+  // 모으는 자료..
   const [writeData, setWriteData] = useState(initData);
 
+  const [title, setTitle] = useState("");
+  const [ingredient, setIngredient] = useState("");
+  const [recipe, setRecipe] = useState("");
+  const [review, setReview] = useState("");
+  const [pics, setPics] = useState([]);
+  const [tags, setTags] = useState([]);
+
+  // 내용 업데이트 (내용 작성)
+  const handleChangeTitle = e => {
+    setTitle(e.target.value);
+  };
+  const handleChangeIngredient = e => {
+    setIngredient(e.target.value);
+  };
+  const handleChangeTags = e => {
+    setTags([e.target.value]);
+  };
+  const handleChangeRecipe = e => {
+    setRecipe(e.target.value);
+  };
+  const handleChangePics = e => {
+    setPics(e.target.value);
+  };
+  const handleChangeReview = e => {
+    setReview(e.target.value);
+  };
+
+  // 내용 재 작성 (리셋 기능)
+  const handelClickReset = () => {
+    setTitle("");
+    setIngredient("");
+    setTags("");
+    setRecipe("");
+    setPics("");
+    setReview("");
+  };
+  // 내용 서버전송
+  // 비어있는지를 체크하여 빈 경우에는 경고를 표시하고
+  // 폼의 제출을 막을 수 있다.
+  const handelClickSubmit = () => {
+    if (title === "") {
+      alert("제목을 입력하세요.");
+      return;
+    }
+    if (ingredient === "") {
+      alert("재료를 입력하세요.");
+      return;
+    }
+    if (tags === "") {
+      alert("#해시태그를 입력하세요.");
+      return;
+    }
+    if (recipe === "") {
+      alert("레시피를 입력하세요.");
+    }
+    if (pics === "") {
+      alert("");
+      return;
+    }
+    if (review === "") {
+      alert("comment를 작성하세요.");
+      return;
+    }
+
+    const obj = {
+      title: title,
+      ingredient: ingredient,
+      recipe: recipe,
+      review: review,
+      pics: ["임시사진.jpg"],
+      tags: tags, //배열만
+    };
+    postMeal(obj);
+  };
+
   // 한번 호출한다.
-  useEffect(() => {
-    postWrite(setWriteData);
-  });
+  useEffect(() => {}, []);
+
   return (
     <div>
-      {writeData.map(item => (
-        <RecipeWriteWrap key={item.title}>
-          <RecipeWriteTop>
-            {/* 상단 취소 버튼 */}
-            <CancelButton></CancelButton>
-            {/* 이미지 추가 */}
-            <AddImages></AddImages>
-            {/* 텍스트 박스 */}
-            <TextBoxes>
+      <RecipeWriteWrap>
+        <RecipeWriteTop>
+          {/* 이미지 추가 */}
+          <AddImages>
+            <div value={title} onChange={e => handleChangePics(e)} />
+          </AddImages>
+          {/* 텍스트 박스 */}
+          <TextBoxes>
+            <input
+              className="textboxes-title"
+              placeholder="제목을 입력하세요."
+              value={title}
+              onChange={e => handleChangeTitle(e)}
+            />
+            <input
+              className="textboxes-ingre"
+              placeholder="재료를 입력하세요."
+              value={ingredient}
+              onChange={e => handleChangeIngredient(e)}
+            />
+            {/* 해시 태그 */}
+            <TextBoxHashTags>
               <input
-                className="textboxes-title"
-                placeholder={item.title}
-              ></input>
+                type="text"
+                className="textboxes-tags-left"
+                placeholder="#해시태그를 입력하세요."
+                value={tags}
+                onChange={e => handleChangeTags(e)}
+              />
               <input
-                className="textboxes-ingre"
-                placeholder={item.ingredient}
-              ></input>
-
-              {/* 해시 태그 */}
-
-              <TextBoxHashTags>
-                <input
-                  type="text"
-                  className="textboxes-tags-left"
-                  placeholder={item.tags[0]}
-                ></input>
-
-                <input
-                  type="text"
-                  className="textboxes-tags-mid"
-                  placeholder={item.tags[1]}
-                ></input>
-                <div className="textboxes-tags-right">
-                  <img src={item.pics[4]} />
-                </div>
-              </TextBoxHashTags>
-
-              {/* 레시피 기록 및 다이어리 코멘트 */}
-              <RecipeComment>
-                <input className="textboxes-recipe" placeholder={item.recipe} />
-                <input
-                  className="textboxes-comment"
-                  placeholder={item.review}
+                type="text"
+                className="textboxes-tags-mid"
+                placeholder="#해시태그를 입력하세요."
+                value={tags}
+                onChange={e => handleChangeTags(e)}
+              />
+              <div className="textboxes-tags-right">
+                <img
+                  src="/images/write/add_icon.svg"
+                  alt=""
+                  value={tags}
+                  onClick={() => {}}
                 />
-              </RecipeComment>
-            </TextBoxes>
-            {/* 버튼 3가지 */}
-            <WriteButtons>
-              <button type="reset" className="restart-bt">
-                <img src="/images//write/reset_icon.png" />
-              </button>
-              <button type="submit" className="complete-bt">
-                <img src="/images/write/check_icon.svg" />
-              </button>
-            </WriteButtons>
-            <Footer></Footer>
-          </RecipeWriteTop>
-        </RecipeWriteWrap>
-      ))}
+              </div>
+            </TextBoxHashTags>
+
+            {/* 레시피 기록 및 다이어리 코멘트 */}
+            <RecipeComment>
+              <input
+                className="textboxes-recipe"
+                placeholder="레시피를 입력하세요."
+                value={recipe}
+                onChange={e => handleChangeRecipe(e)}
+              />
+              <input
+                className="textboxes-comment"
+                placeholder="comment를 작성하세요."
+                value={review}
+                onChange={e => handleChangeReview(e)}
+              />
+            </RecipeComment>
+          </TextBoxes>
+          {/* 버튼 2가지 */}
+          <WriteButtons>
+            <button
+              type="reset"
+              className="restart-bt"
+              onClick={e => {
+                handelClickReset(e);
+              }}
+            >
+              <img src="/images/write/reset_icon.png" alt="" />
+            </button>
+            <button
+              type="button"
+              className="complete-bt"
+              onClick={e => {
+                handelClickSubmit(e);
+              }}
+            >
+              <img src="/images/write/check_icon.svg" alt="" />
+            </button>
+          </WriteButtons>
+          <Footer></Footer>
+        </RecipeWriteTop>
+      </RecipeWriteWrap>
     </div>
   );
 };
