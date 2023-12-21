@@ -29,14 +29,14 @@ export const getMore = async (imeal, setMoreData) => {
 };
 
 export const deleteMore = async (imeal, setMoreData) => {
-  console.log(deleteMore, "imeal=", imeal);
+  // console.log(deleteMore, "imeal=", imeal);
   try {
-    const url = `/api/meal?imeal=${imeal}`;
+    const url = `/api/meal/${imeal}`;
     const res = await axios.delete(url);
     setMoreData(res.data);
   } catch (error) {
     console.log(error);
-    alert(`서버가 잠시 문제가있습니다. 잠시후 다시 시도해주세요.`);
+    alert("어쩔티비");
     // 오류시 작업할 fake 데이터
     setMoreData({
       imeal: 30,

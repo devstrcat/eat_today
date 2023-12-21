@@ -57,6 +57,8 @@ export const MoreMainWrap = styled.div`
   align-items: center;
   gap: 20px;
   padding-top: 20px;
+
+
   .swiper {
     width: 100%;
     border-radius: 20px;
@@ -68,6 +70,8 @@ export const MoreMainWrap = styled.div`
 export const CakeImg = styled.img`
   width: 266px;
   height: 236px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 export const HashTagWrap = styled.ul`
   width: 266px;
@@ -92,24 +96,33 @@ export const ContentWrap = styled.div`
   flex-direction: column;
   gap: 20px;
   .ingredient {
+    font-size: 12px;
+    padding: 15px 15px 15px 15px;
     background-color: #ffebd0;
     border-radius: 10px;
+    box-sizing: border-box;
     width: 266px;
-    height: 147px;
+    min-height: 147px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   .recipe {
+    font-size: 12px;
+    padding: 15px;
     background-color: #ffebd0;
     border-radius: 10px;
     width: 266px;
-    height: 151px;
+    min-height: 151px;
+    box-sizing: border-box;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
-  .comment {
+  .review {
+    font-size: 12px;
+    padding: 15px 15px 15px 15px;
     background-color: #ffebd0;
     border-radius: 10px;
+    box-sizing: border-box;
     width: 266px;
-    height: 100px;
+    min-height: 100px;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 `;

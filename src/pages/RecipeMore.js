@@ -9,6 +9,7 @@ import {
   MoreMainWrap,
   Title,
 } from "../styles/more/moreStyle";
+import Search from "../components/Search";
 import { getMore } from "../api/more_api";
 import { useParams } from "react-router";
 // Import Swiper React components
@@ -18,6 +19,8 @@ import { Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
+import { deleteMore } from "../api/more_api";
 
 // 서버에서 돌려주는 값
 const initMoreData = {
@@ -25,8 +28,8 @@ const initMoreData = {
   title: "",
   review: "",
   createdAt: "",
-  pics: [],
-  tags: [],
+  pics: [""],
+  tags: [""],
   recipe: "",
   ingredient: "",
   bookMark: 0,
@@ -34,8 +37,9 @@ const initMoreData = {
 const RecipeMore = () => {
   const param = useParams();
   const imeal = parseInt(param.imeal);
+  // console.log(imeal);
 
-  const [moreData, setMoreData] = useState([initMoreData]);
+  const [moreData, setMoreData] = useState(initMoreData);
 
   // 최초 렌더링 시 실행
   useEffect(() => {
@@ -49,6 +53,9 @@ const RecipeMore = () => {
     setIsClicked(!isClicked);
   };
 
+  const handleDelete = () => {
+    deleteMore(imeal, setMoreData);
+  };
   return (
     <div>
       <HeaderWrap>
@@ -58,8 +65,12 @@ const RecipeMore = () => {
             className={isClicked ? "bookmarkhover" : "bookmark"}
             onClick={bookMarkHover}
           ></button>
-          <button className="edit"></button>
-          <button className="trash"></button>
+          <Link to="/meal/edit">
+            <button className="edit"></button>
+          </Link>
+          <Link to="/meal">
+            <button className="trash" onClick={handleDelete}></button>
+          </Link>
         </BtWrap>
       </HeaderWrap>
       <MoreMainWrap>
@@ -74,12 +85,14 @@ const RecipeMore = () => {
         </Swiper>
         <HashTagWrap>
           {moreData.tags &&
-            moreData.tags.map((item, index) => <li key={index}>{item}</li>)}
+            moreData.tags.map((item, index) => {
+              return <li key={index}>{item}</li>;
+            })}
         </HashTagWrap>
         <ContentWrap>
           <div className="ingredient">{moreData.ingredient}</div>
           <div className="recipe">{moreData.recipe}</div>
-          <div className="comment">{moreData.review}</div>
+          <div className="review">{moreData.review}</div>
         </ContentWrap>
       </MoreMainWrap>
       <Footer />

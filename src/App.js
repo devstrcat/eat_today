@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import RecipeWrite from "./pages/RecipeWrite";
 import BookMark from "./pages/BookMark";
 import RecipeEdit from "./pages/RecipeEdit";
+import Member from "./pages/Member";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/meal" element={<Index />}></Route>
         <Route path="/meal/write" element={<RecipeWrite />}></Route>
         <Route path="/meal/more/:imeal" element={<RecipeMore />} />
+        <Route path="/meal/member" element={<Member />}></Route>
         <Route path="/meal/bookmark" element={<BookMark />}></Route>
         <Route path="/meal/edit" element={<RecipeEdit />}></Route>
         <Route path="*" element={<NotFound />} />

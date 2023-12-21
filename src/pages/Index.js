@@ -24,7 +24,7 @@ const Index = () => {
 
   // 검색 데이터 연동
   const handleClickGet = () => {
-    getMeal(1, 20, 0, setData, UseSearch);
+    getMeal(1, 50, 0, setData, UseSearch);
   };
   const resetClickGet = () => {
     getMeal(1, 20, 0, setData);
