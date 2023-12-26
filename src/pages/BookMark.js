@@ -3,7 +3,7 @@ import Search from "../components/Search";
 import Footer from "../components/Footer";
 import MealViewBt from "../components/meal/MealViewBt";
 import BookMarkBoard from "../components/meal/BookMarkBoard";
-import { getMeal } from "../api/meal/meal_api";
+import { getBookMeal, getMeal } from "../api/meal/meal_api";
 
 const BookMark = () => {
   // 기본 데이터

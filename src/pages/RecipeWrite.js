@@ -10,6 +10,7 @@ import {
 } from "../styles/write/recipewriteStyle";
 import AddImages from "../components/write/AddImages";
 import { postMeal } from "../api/song_api/song_api";
+import AddTags from "../components/write/Addtags";
 
 const initData = {
   title: "",
@@ -17,12 +18,9 @@ const initData = {
   recipe: "",
   review: "",
   pics: [],
-  tags: [],
+  tags: [""],
 };
 const RecipeWrite = () => {
-  // 모으는 자료..
-  const [writeData, setWriteData] = useState(initData);
-
   const [title, setTitle] = useState("");
   const [ingredient, setIngredient] = useState("");
   const [recipe, setRecipe] = useState("");
@@ -37,15 +35,15 @@ const RecipeWrite = () => {
   const handleChangeIngredient = e => {
     setIngredient(e.target.value);
   };
-  const handleChangeTags = e => {
-    setTags([e.target.value]);
+  const handleChangeTags = updatedTags => {
+    setTags(updatedTags);
   };
   const handleChangeRecipe = e => {
     setRecipe(e.target.value);
   };
-  const handleChangePics = e => {
-    setPics(e.target.value);
-  };
+  // const handleChangePics = e => {
+  //   setPics(e.target.value);
+  // };
   const handleChangeReview = e => {
     setReview(e.target.value);
   };
@@ -71,15 +69,15 @@ const RecipeWrite = () => {
       alert("재료를 입력하세요.");
       return;
     }
-    if (tags === "") {
-      alert("#해시태그를 입력하세요.");
+    if (tags.length === 0 || tags[0] === "") {
+      alert("태그를 입력하세요.");
       return;
     }
     if (recipe === "") {
       alert("레시피를 입력하세요.");
     }
     if (pics === "") {
-      alert("");
+      alert("사진을 넣어주세요.");
       return;
     }
     if (review === "") {
@@ -92,10 +90,14 @@ const RecipeWrite = () => {
       ingredient: ingredient,
       recipe: recipe,
       review: review,
-      pics: ["임시사진.jpg"],
+      pics: pics,
       tags: tags, //배열만
     };
     postMeal(obj);
+  };
+
+  const handleImageUpload = imageUrl => {
+    setPics(prevPics => [...prevPics, imageUrl]);
   };
 
   // 한번 호출한다.
@@ -106,9 +108,7 @@ const RecipeWrite = () => {
       <RecipeWriteWrap>
         <RecipeWriteTop>
           {/* 이미지 추가 */}
-          <AddImages>
-            <div value={title} onChange={e => handleChangePics(e)} />
-          </AddImages>
+          <AddImages onImageUpload={handleImageUpload}></AddImages>
           {/* 텍스트 박스 */}
           <TextBoxes>
             <input
@@ -124,31 +124,7 @@ const RecipeWrite = () => {
               onChange={e => handleChangeIngredient(e)}
             />
             {/* 해시 태그 */}
-            <TextBoxHashTags>
-              <input
-                type="text"
-                className="textboxes-tags-left"
-                placeholder="#해시태그를 입력하세요."
-                value={tags}
-                onChange={e => handleChangeTags(e)}
-              />
-              <input
-                type="text"
-                className="textboxes-tags-mid"
-                placeholder="#해시태그를 입력하세요."
-                value={tags}
-                onChange={e => handleChangeTags(e)}
-              />
-              <div className="textboxes-tags-right">
-                <img
-                  src="/images/write/add_icon.svg"
-                  alt=""
-                  value={tags}
-                  onClick={() => {}}
-                />
-              </div>
-            </TextBoxHashTags>
-
+            <AddTags onTagsUpdate={handleChangeTags}></AddTags>
             {/* 레시피 기록 및 다이어리 코멘트 */}
             <RecipeComment>
               <input
