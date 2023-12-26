@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
-import {
-  BtWrap,
-  CakeImg,
-  ContentWrap,
-  HashTagWrap,
-  HeaderWrap,
-  MoreMainWrap,
-  Title,
-} from "../styles/more/moreStyle";
+import { BtWrap, CakeImg, ContentWrap, HashTagWrap, HeaderWrap, MoreMainWrap, Title } from "../styles/more/moreStyle";
 import Search from "../components/Search";
 import { getMore } from "../api/more_api";
 import { useParams } from "react-router";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import { deleteMore } from "../api/more_api";
 
@@ -41,6 +33,7 @@ const RecipeMore = () => {
   const imeal = parseInt(param.imeal);
   // console.log(imeal);
 
+  // 화면 새로 고침 (rerendering)
   const [moreData, setMoreData] = useState(initMoreData);
 
   // 최초 렌더링 시 실행
@@ -55,9 +48,14 @@ const RecipeMore = () => {
     setIsClicked(!isClicked);
   };
 
-  const handleDelete = () => {
+  const handleClickEdit = (e) => {
     deleteMore(imeal, setMoreData);
-  }
+  };
+
+  const handleClickDelete = (e) => {
+    deleteMore(imeal, setMoreData);
+  };
+
   return (
     <div>
       <HeaderWrap>
@@ -68,10 +66,10 @@ const RecipeMore = () => {
             onClick={bookMarkHover}
           ></button>
           <Link to="/meal/edit">
-          <button className="edit"></button>
+          <button className="edit"  onClick={(e) => {handleClickEdit(e)}}></button>
           </Link>
           <Link to="/meal">
-          <button className="trash" onClick={handleDelete}></button>
+          <button className="trash" onClick={(e) => {handleClickDelete(e)}}></button>
           </Link>
         </BtWrap>
       </HeaderWrap>
@@ -86,13 +84,14 @@ const RecipeMore = () => {
             ))}
         </Swiper>
         <HashTagWrap>
-          {moreData.tags && moreData.tags.map((item, index) => {
-            return <li key={index}>{item}</li>;
-          })}
+          {moreData.tags &&
+            moreData.tags.map((item, index) => {
+              return <li key={index}>{item}</li>;
+            })}
         </HashTagWrap>
         <ContentWrap>
           <div className="ingredient">{moreData.ingredient}</div>
-          <div className="recipe" >{moreData.recipe}</div>
+          <div className="recipe">{moreData.recipe}</div>
           <div className="review">{moreData.review}</div>
         </ContentWrap>
       </MoreMainWrap>

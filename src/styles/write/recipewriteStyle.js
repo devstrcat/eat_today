@@ -5,6 +5,7 @@ export const RecipeWriteWrap = styled.div`
   width: 320px;
   display: flex;
   justify-content: space-around;
+  padding-top: 30px;
 `;
 
 export const RecipeWriteTop = styled.div`
@@ -21,7 +22,7 @@ export const TextBoxes = styled.div`
     width: 279px;
     height: 40px;
     margin-top: 22px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background-color: #fff;
@@ -32,7 +33,7 @@ export const TextBoxes = styled.div`
     width: 279px;
     height: 40px;
     margin-top: 22px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background-color: #fff;
@@ -51,7 +52,7 @@ export const TextBoxHashTags = styled.div`
     position: relative;
     width: 108px;
     height: 44px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #fff;
@@ -64,7 +65,7 @@ export const TextBoxHashTags = styled.div`
     width: 108px;
     height: 44px;
     margin-left: 10px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #fff;
@@ -99,7 +100,7 @@ export const RecipeComment = styled.div`
     width: 280px;
     height: 150px;
     margin-top: 36px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #fff;
@@ -111,7 +112,7 @@ export const RecipeComment = styled.div`
     width: 280px;
     height: 150px;
     margin-top: 22px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #fff;

@@ -30,9 +30,7 @@ const App = () => {
         <Route path="/meal/400" element={<NotFound />} /> 
         <Route path="/meal/user" element={<User />} /> 
         <Route path="/meal/log" element={<LogIn/>}/>
-
-   
-
+        <Route path="/meal/edit/:imeal" element={<RecipeEdit />}></Route>
       </Routes>
     </Wrap>
   );
