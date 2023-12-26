@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
-import {
-  BtWrap,
-  CakeImg,
-  ContentWrap,
-  HashTagWrap,
-  HeaderWrap,
-  MoreMainWrap,
-  Title,
-} from "../styles/more/moreStyle";
+import { BtWrap, CakeImg, ContentWrap, HashTagWrap, HeaderWrap, MoreMainWrap, Title } from "../styles/more/moreStyle";
 import Search from "../components/Search";
 import { getMore } from "../api/more_api";
 import { useParams } from "react-router";
@@ -39,6 +31,7 @@ const RecipeMore = () => {
   const param = useParams();
   const imeal = parseInt(param.imeal);
 
+  // 화면 새로 고침 (rerendering)
   const [moreData, setMoreData] = useState(initMoreData);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -72,7 +65,10 @@ const RecipeMore = () => {
     }
   };
 
-  const handleDelete = () => {
+  const handleClickEdit = (e) => {
+    deleteMore(imeal, setMoreData);
+  };
+  const handleClickDelete = (e) => {
     deleteMore(imeal, setMoreData);
   };
   return (
@@ -85,10 +81,10 @@ const RecipeMore = () => {
             onClick={bookMarkHover}
           ></button>
           <Link to="/meal/edit">
-            <button className="edit"></button>
+          <button className="edit"  onClick={(e) => {handleClickEdit(e)}}></button>
           </Link>
           <Link to="/meal">
-            <button className="trash" onClick={handleDelete}></button>
+          <button className="trash" onClick={(e) => {handleClickDelete(e)}}></button>
           </Link>
         </BtWrap>
       </HeaderWrap>

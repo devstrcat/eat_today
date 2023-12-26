@@ -1,4 +1,6 @@
+
 /* eslint-disable no-undef */
+
 import { initializeApp } from "firebase/app";
 import {
   getStorage,
@@ -23,3 +25,4 @@ const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
 export { app, storage, ref, uploadBytes, listAll, getDownloadURL };
+

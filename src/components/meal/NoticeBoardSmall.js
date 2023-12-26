@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const NoticeBoardSmall = props => {
   const { data } = props;
-
   return (
     <div>
       <Link to={`/meal/more/${data.imeal}`}>

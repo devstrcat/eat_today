@@ -4,35 +4,15 @@ export const RecipeWriteWrap = styled.div`
   position: relative;
   width: 320px;
   height: 960px;
+
   display: flex;
   justify-content: space-around;
+  padding-top: 30px;
 `;
 
 export const RecipeWriteTop = styled.div`
   position: relative;
   background-color: #fff;
-`;
-
-export const CancelButton = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-`;
-
-export const CancelButtonIcon = styled.div`
-  position: relative;
-  width: 34px;
-  height: 34px;
-  display: block;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 18px;
-  margin-bottom: 22px;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
-  background: #fff;
-  border-radius: 100px;
 `;
 
 export const AddImages = styled.div`
@@ -57,20 +37,18 @@ export const AddImagesLeft = styled.div`
 `;
 
 export const AddImagesMid = styled.div`
+  position: relative;
   width: 87px;
   height: 77px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-right: 8px;
-  margin-left: 8px;
+  overflow: hidden;
   background: #ffebd0;
   border-radius: 19px;
+  margin-right: 8px;
+  margin-left: 8px;
 
   img {
-    width: 20px;
-    height: 20px;
+    width: 87px;
+    height: 77px;
   }
 `;
 
@@ -78,16 +56,13 @@ export const AddImagesRight = styled.div`
   position: relative;
   width: 87px;
   height: 77px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  overflow: hidden;
   background: #ffebd0;
   border-radius: 19px;
 
   img {
-    width: 20px;
-    height: 20px;
+    width: 87px;
+    height: 77px;
   }
 `;
 export const TextBoxes = styled.div`
@@ -99,7 +74,7 @@ export const TextBoxes = styled.div`
     width: 279px;
     height: 40px;
     margin-top: 22px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background-color: #fff;
@@ -110,7 +85,7 @@ export const TextBoxes = styled.div`
     width: 279px;
     height: 40px;
     margin-top: 22px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background-color: #fff;
@@ -118,14 +93,34 @@ export const TextBoxes = styled.div`
   }
 `;
 
-export const TextBoxHashTags = styled.div`
+export const TextBoxHashTags = styled.ul`
   position: relative;
+  width: 266px;
+  display: flex;
+  margin-left: 20px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  li {
+    padding: 0 10px;
+    height: 25px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    padding-top: 5px;
+    &:nth-of-type(2n) {
+      background-color: #ffebd0;
+    }
+  }
+
+  /* position: relative;
   display: flex;
   margin-top: 22px;
   justify-content: center;
-  width: 100%;
+  width: 100%; */
 
-  .textboxes-tags-left {
+  /* .textboxes-tags-left {
     position: relative;
     width: 108px;
     height: 44px;
@@ -135,9 +130,9 @@ export const TextBoxHashTags = styled.div`
     background: #fff;
     border-radius: 10px;
     font-size: 9px;
-  }
+  } */
 
-  .textboxes-tags-mid {
+  /* .textboxes-tags-mid {
     position: relative;
     width: 108px;
     height: 44px;
@@ -160,12 +155,12 @@ export const TextBoxHashTags = styled.div`
     border: 0;
     background: #ffebd0;
     border-radius: 10px;
-  }
+  } */
 
-  img {
+  /* img {
     width: 15px;
     height: 15px;
-  }
+  } */
 `;
 
 export const RecipeComment = styled.div`
@@ -174,7 +169,7 @@ export const RecipeComment = styled.div`
     width: 279px;
     height: 151px;
     margin-top: 36px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #fff;
@@ -186,7 +181,7 @@ export const RecipeComment = styled.div`
     width: 279px;
     height: 151px;
     margin-top: 22px;
-    padding-left: 8px;
+    padding: 8px;
     border: 0;
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #fff;

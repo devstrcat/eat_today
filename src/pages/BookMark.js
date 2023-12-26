@@ -17,10 +17,10 @@ const BookMark = () => {
 
   // 검색 데이터 연동
   const handleClickGet = () => {
-    getBookMeal(1, 4, 1, setData, UseSearch);
+    getMeal(1, 4, 0, setData, UseSearch);
   };
   const resetClickGet = () => {
-    getBookMeal(1, 4, 1, setData);
+    getMeal(1, 4, 0, setData);
   };
 
   // 검색 조건문
