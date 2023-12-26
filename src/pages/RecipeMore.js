@@ -41,6 +41,7 @@ const RecipeMore = () => {
   const imeal = parseInt(param.imeal);
   // console.log(imeal);
 
+  // 화면 새로 고침 (rerendering)
   const [moreData, setMoreData] = useState(initMoreData);
 
   // 최초 렌더링 시 실행
@@ -55,9 +56,13 @@ const RecipeMore = () => {
     setIsClicked(!isClicked);
   };
 
-  const handleDelete = () => {
+  const handleClickEdit = (e) => {
     deleteMore(imeal, setMoreData);
-  }
+  };
+
+  const handleClickDelete = (e) => {
+    deleteMore(imeal, setMoreData);
+  };
   return (
     <div>
       <HeaderWrap>
@@ -68,10 +73,10 @@ const RecipeMore = () => {
             onClick={bookMarkHover}
           ></button>
           <Link to="/meal/edit">
-          <button className="edit"></button>
+          <button className="edit"  onClick={(e) => {handleClickEdit(e)}}></button>
           </Link>
           <Link to="/meal">
-          <button className="trash" onClick={handleDelete}></button>
+          <button className="trash" onClick={(e) => {handleClickDelete(e)}}></button>
           </Link>
         </BtWrap>
       </HeaderWrap>
