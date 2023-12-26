@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const RecipeWriteWrap = styled.div`
   position: relative;
   width: 320px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-around;
 `;
