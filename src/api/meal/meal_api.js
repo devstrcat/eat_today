@@ -73,7 +73,7 @@ export const getBookMeal = async (
       : "";
 
     // bookmark가 1인 데이터만 가져오도록 설정
-    const url = `${SERVER_URL}/api/meal?page=${page}&row_count=${row_count}&bookmark=1${searchQuery}`;
+    const url = `${SERVER_URL}/api/meal?page=${page}&row_count=${row_count}&bookmark=${bookmark}${searchQuery}`;
 
     const res = await axios.get(url);
 

@@ -6,6 +6,8 @@ const Intro = () => {
   // emotion 적용
   const IntroDiv = styled.div`
     display: flex;
+    position: fixed;
+    width: 320px;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -16,16 +18,16 @@ const Intro = () => {
   `;
 
   // 함수
-  const navigate = useNavigate();
-  useEffect(() => {
-    // 3초 후에 "/meal"으로 이동
-    const timeoutId = setTimeout(() => {
-      navigate("/meal");
-    }, 2000);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   // 3초 후에 "/meal"으로 이동
+  //   const timeoutId = setTimeout(() => {
+  //     navigate("/meal");
+  //   }, 2000);
 
-    // 컴포넌트가 언마운트될 때 타이머 제거
-    return () => clearTimeout(timeoutId);
-  }, [navigate]);
+  //   // 컴포넌트가 언마운트될 때 타이머 제거
+  //   return () => clearTimeout(timeoutId);
+  // }, [navigate]);
 
   return (
     <IntroDiv>
