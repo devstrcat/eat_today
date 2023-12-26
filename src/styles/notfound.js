@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Cover = styled.div`
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  width: 320px;
   height: 100vh;
   background: #fdb456;
   text-align: center;
