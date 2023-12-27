@@ -28,6 +28,7 @@ const RecipeWrite = () => {
   const [review, setReview] = useState("");
   const [pics, setPics] = useState([]);
   const [songTags, setSongTags] = useState([]);
+  
 
   // 내용 업데이트 (내용 작성)
   const handleChangeTitle = e => {

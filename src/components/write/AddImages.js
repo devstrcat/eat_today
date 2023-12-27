@@ -31,7 +31,6 @@ const getBase64 = file =>
 const AddImages = props => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
-  const [previewTitle, setPreviewTitle] = useState("");
   const [fileList, setFileList] = useState([]);
 
   const handleCancel = () => setPreviewOpen(false);
@@ -42,7 +41,6 @@ const AddImages = props => {
       file.preview = await getBase64(file.originFileObj);
     }
     setPreviewImage(file.url || file.preview);
-    setPreviewTitle(true);
   };
 
   const handleChange = ({ fileList: newFileList }) => {
@@ -80,6 +78,22 @@ const AddImages = props => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (!props.previewImageUrls) {
+      // 배열이 없을 때 아무것도 실행안하게 함
+    } else {
+      // 배열이 값이 있을 때 실행할 로직
+      const defaultFileList = props.previewImageUrls.map((url, index) => ({
+        uid: `${index + 1}`,
+        name: `${props.imageUrl}`, // 파일 이름 예시
+        status: "done",
+        url: url,
+      }));
+      setFileList(defaultFileList);
+    }
+  }, [props.previewImageUrls]);
+
   const uploadButton = (
     <Uimg>
       <img src="/images/write/add_icon.svg"></img>

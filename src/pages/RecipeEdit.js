@@ -96,7 +96,7 @@ const RecipeEdit = () => {
     if (recipe === "") {
       alert("레시피를 입력하세요.");
     }
-    if (uploadedImage === null) {
+    if (pics === null) {
       alert("사진을 넣어주세요.");
       return;
     }
@@ -205,7 +205,7 @@ const RecipeEdit = () => {
   useEffect(() => {
     // 최초 렌더링 시 실행
     getMoreSong(imeal, successMoreData);
-  }, []);
+  }, [imeal]);
 
   return (
     <RecipeWriteWrap>
@@ -215,6 +215,7 @@ const RecipeEdit = () => {
           onImageUpload={(file, index) => handleImageUpload(file, index)}
           setPics={setPics}
           imageUrl={pics}
+          previewImageUrls={moreData.pics}
         ></AddImages>
         {/* 텍스트 박스 */}
         <TextBoxes>
