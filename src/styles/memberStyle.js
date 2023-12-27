@@ -1,62 +1,54 @@
 import styled from "@emotion/styled";
 export const MemberWrap = styled.div`
-  /* padding: 10px 20px;
-  /* padding-left: 20px; */
-  /* display: flex;
+  padding: 30px 0;
+  display: flex;
   flex-direction: column;
   position: relative;
-  top: 10px;
-  gap: 40px; */
-  /* font-family: 'KimjungchulMyungjo-Bold';  */ 
+  gap: 60px;
 `;
+
+
 
 export const MemberBox = styled.div`
 display: flex;
-img {
-    width: 100px;
-    height: 70px;
+gap: 40px;
+/* justify-content: space-between; */
+color: #4C3724;
+padding-left: 20px;
+
+.box-wrap {
+  position: relative;
 }
-.circle {
+
+img {
+    width: 180px;
+    height: 70px;
+    opacity: 0.6;
+}
+
+.role {
+  position: absolute;
+    font-size: 13px;
+    z-index: 1;
+    top: 0;
+    font-family: 'KimjungchulMyungjo-Bold';
+    text-align: center;
+}
+
+`;
+export const Circle = styled.div`
     width: 80px;
     height: 80px;
-    border: 1.5px solid #C6BEB3;
+    border: 1px solid #DBE8E3;
     border-radius: 50px;
     text-align: center;
-    font-size: 12px;
-}
-.role {
-    font-size: 13px;
-}
-  /* padding: 9px 7px 7px 7px;
-  width: 140px;
-  height: 80px;
-  align-self: flex-end;
-  border-radius: 13px;
-  background-color: #FFA026;
-  font-size: 12px;
-  color: #5B3928;
-  text-align: center;
-  line-height: 16 px;
-  &:nth-of-type(2n) {
-    align-self: flex-start;
-  }
-  &:nth-of-type(2) {
-    background-color: #FFA02690;
-  }
-  &:nth-of-type(3) {
-    background-color: #FFA02680;
-  }
-  &:nth-of-type(4) {
-    background-color: #FFA02670;
-  }
-  &:nth-of-type(5) {
-    background-color: #FFA02660;    
-  }
-  &:nth-of-type(6) {
-    background-color: #FFA02650;
-  }
-  &:nth-of-type(7) {
-    background-color: #FFA02630;
-  } */
-`;
+    /* align-items: center; */
+    padding-top: 30px;
+    font-size: 14px;
+    gap: 50px;
+    font-family: 'KimjungchulMyungjo-Bold';
+    color: #5B3928;
+    `
+ 
+
 
