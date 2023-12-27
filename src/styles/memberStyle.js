@@ -1,89 +1,61 @@
 import styled from "@emotion/styled";
+export const MemberWrap = styled.div`
+  /* padding: 10px 20px;
+  /* padding-left: 20px; */
+  /* display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 10px;
+  gap: 40px; */
+  /* font-family: 'KimjungchulMyungjo-Bold';  */
+`;
 
-export const Mem = styled.div`
-  padding-right: 20px;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  .mem1 {
-    padding-top: 10px;
-    margin-top: 20px;
-    width: 138px;
-    height: 66px;
-    border-radius: 13px;
-    background-color: #ffa026;
-    font-size: 9px;
-    color: white;
-    text-align: center;
-    right: 0;
+export const MemberBox = styled.div`
+  display: flex;
+  img {
+    width: 100px;
+    height: 70px;
   }
-  .mem2 {
-    padding-top: 10px;
-    margin-top: 100px;
-    width: 138px;
-    height: 66px;
-    border-radius: 13px;
-    background-color: #ffba61;
-    font-size: 9px;
-    color: white;
+  .circle {
+    width: 80px;
+    height: 80px;
+    border: 1.5px solid #c6beb3;
+    border-radius: 50px;
     text-align: center;
-    right: 0;
+    font-size: 12px;
   }
-  .mem3 {
-    padding-top: 10px;
-    margin-top: 100px;
-    width: 138px;
-    height: 66px;
-    border-radius: 13px;
-    background-color: #ffd094;
-    font-size: 9px;
-    color: white;
-    text-align: center;
-    right: 0;
+  .role {
+    font-size: 13px;
   }
-  .mem4 {
-    padding-top: 10px;
-    margin-top: 100px;
-    width: 138px;
-    height: 66px;
-    border-radius: 13px;
-    background-color: #ffecd3;
-    font-size: 9px;
-    color: white;
-    text-align: center;
-    right: 0;
+  /* padding: 9px 7px 7px 7px;
+  width: 140px;
+  height: 80px;
+  align-self: flex-end;
+  border-radius: 13px;
+  background-color: #FFA026;
+  font-size: 12px;
+  color: #5B3928;
+  text-align: center;
+  line-height: 16 px;
+  &:nth-of-type(2n) {
+    align-self: flex-start;
   }
-  .mem5 {
-    padding-top: 10px;
-    margin-top: 100px;
-    width: 138px;
-    height: 66px;
-    border-radius: 13px;
-    background-color: #ffecd3;
-    font-size: 9px;
-    color: white;
-    text-align: center;
+  &:nth-of-type(2) {
+    background-color: #FFA02690;
   }
-  .mem6 {
-    padding-top: 10px;
-    margin-top: 100px;
-    width: 138px;
-    height: 66px;
-    border-radius: 13px;
-    background-color: #ffecd3;
-    font-size: 9px;
-    color: white;
-    text-align: center;
+  &:nth-of-type(3) {
+    background-color: #FFA02680;
   }
-  .mem7 {
-    padding-top: 10px;
-    margin-top: 100px;
-    width: 138px;
-    height: 66px;
-    border-radius: 13px;
-    background-color: #ffecd3;
-    font-size: 9px;
-    color: white;
-    text-align: center;
+  &:nth-of-type(4) {
+    background-color: #FFA02670;
   }
+  &:nth-of-type(5) {
+    background-color: #FFA02660;    
+  }
+  &:nth-of-type(6) {
+    background-color: #FFA02650;
+  }
+  &:nth-of-type(7) {
+    background-color: #FFA02630;
+  } */
 `;

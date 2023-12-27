@@ -1,5 +1,4 @@
 import axios from "axios";
-import { SERVER_URL } from "../components/meal/config";
 
 export const getMore = async (imeal, setMoreData) => {
   try {
@@ -36,7 +35,9 @@ export const deleteMore = async (imeal, setMoreData) => {
     setMoreData(res.data);
   } catch (error) {
     console.log(error);
-    alert("어쩔티비");
+    alert(
+      " 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
+    );
     // 오류시 작업할 fake 데이터
     setMoreData({
       imeal: 30,
@@ -53,3 +54,4 @@ export const deleteMore = async (imeal, setMoreData) => {
     });
   }
 };
+

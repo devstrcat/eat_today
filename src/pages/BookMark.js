@@ -3,7 +3,7 @@ import Search from "../components/Search";
 import Footer from "../components/Footer";
 import MealViewBt from "../components/meal/MealViewBt";
 import BookMarkBoard from "../components/meal/BookMarkBoard";
-import { getMeal } from "../api/meal/meal_api";
+import { getBookMeal, getMeal } from "../api/meal/meal_api";
 
 const BookMark = () => {
   // 기본 데이터
@@ -17,10 +17,10 @@ const BookMark = () => {
 
   // 검색 데이터 연동
   const handleClickGet = () => {
-    getMeal(1, 20, 1, setData, UseSearch);
+    getBookMeal(1, 4, 1, setData, UseSearch);
   };
   const resetClickGet = () => {
-    getMeal(1, 20, 1, setData);
+    getBookMeal(1, 4, 1, setData);
   };
 
   // 검색 조건문

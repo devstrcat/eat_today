@@ -6,6 +6,8 @@ const Intro = () => {
   // emotion 적용
   const IntroDiv = styled.div`
     display: flex;
+    position: fixed;
+    width: 320px;
     justify-content: center;
     align-items: center;
     height: 100vh;

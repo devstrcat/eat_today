@@ -16,12 +16,15 @@ const BookMarkNotice = props => {
         <BookMarkNoticeDiv>
           <BookMarkIcon />
           <BookMarkNoticePics>
-            <img src={data.pics} alt="사진을 넣어주세요" />
+            {data.pics && data.pics.length > 0 ? (
+              <img src={data.pics[0]} alt="사진을 넣어주세요" />
+            ) : (
+              <span>이미지가 없습니다.</span>
+            )}
           </BookMarkNoticePics>
           <BookMarkNoticeTags>
-            {data.tags.map((tags, index) => (
-              <span key={index}>#{tags}</span>
-            ))}
+            {data.tags &&
+              data.tags.map((tags, index) => <span key={index}>#{tags}</span>)}
           </BookMarkNoticeTags>
         </BookMarkNoticeDiv>
       </Link>

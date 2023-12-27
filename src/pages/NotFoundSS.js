@@ -1,14 +1,13 @@
 import React from "react";
-
-import { Link, useNavigate } from "react-router-dom";
 import { Back, Boxs, Content, Cover, Phrases } from "../styles/notfound";
+import { Link } from "react-router-dom";
 
-const NotFound = () => {
+const NotFoundSS = () => {
   return (
     <div>
       <Cover>
         <Boxs>
-          <Phrases>404 ERROR</Phrases>
+          <Phrases>ERROR</Phrases>
           <Content>
             원하시는 결과를 찯을수 없습니다.
             <br />
@@ -25,4 +24,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundSS;
