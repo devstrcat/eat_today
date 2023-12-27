@@ -7,6 +7,8 @@ export const MemberWrap = styled.div`
   gap: 60px;
 `;
 
+
+
 export const MemberBox = styled.div`
 display: flex;
 gap: 40px;

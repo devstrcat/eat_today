@@ -46,7 +46,7 @@ const Member = () => {
           <div className="role">
           (팀원)<br />
           상세 페이지, 소개 페이지 제작<br />
-          다이어그램 활용
+          플로우차트 제작
           </div>
           </div>
       </MemberBox>
