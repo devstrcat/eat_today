@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { ButtonLog, LogBox, LogBoxs, Wraps } from "../styles/myuser/MyLog";
+import { Link, useNavigate } from "react-router-dom";
 import { PostUserS } from "../api/user/signup_api";
+import { ButtonLog, LogBox, LogBoxs, Wraps } from "../styles/myuser/mylog";
 
 const LogIn = () => {
   //로그인

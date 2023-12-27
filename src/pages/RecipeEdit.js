@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
 import {
-  AddImages,
-  AddImagesLeft,
-  AddImagesMid,
-  AddImagesRight,
   RecipeComment,
   RecipeWriteTop,
   RecipeWriteWrap,
-  TextBoxHashTags,
   TextBoxHashTagsSong,
   TextBoxes,
   WriteButtons,
 } from "../styles/write/recipeeditStyle";
 import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
-import { getMore } from "../api/more_api";
 import { getMoreSong, putMeal } from "../api/song_api/song_api";
-import AddTags from "../components/write/Addtags";
 import Edittags from "../components/write/Edittags";
+import "../styles/write/addtags.css";
+import {
+  getDownloadURL,
+  ref,
+  storage,
+  uploadBytes,
+} from "../fb/firebaseconfig";
+import AddImages from "../components/write/AddImages";
 
 // 서버에서 돌려주는 값
 const initMoreData = {
@@ -40,6 +41,7 @@ const RecipeEdit = () => {
   const [review, setReview] = useState("");
   const [pics, setPics] = useState([]);
   const [songTags, setSongTags] = useState([]);
+  const [uploadedImage, setUploadedImage] = useState(null);
 
   // 상세페이지(more) 불러온다.
   const param = useParams();
@@ -47,16 +49,6 @@ const RecipeEdit = () => {
 
   const [moreData, setMoreData] = useState(initMoreData);
 
-  // 사진 내용 업데이트
-  const handleChangePics = e => {
-    setPics([e.target.value]);
-  };
-
-  // 태그 업데이트
-  const handleChangeTags = updatedTags => {
-    // 무한루프
-    // setTags([updatedTags]);
-  };
   // 내용 업데이트 (내용 작성)
   const handleChangeTitle = e => {
     setTitle(e.target.value);
@@ -96,7 +88,6 @@ const RecipeEdit = () => {
       alert("재료를 입력하세요.");
       return;
     }
-
     const songTagsResult = songTags.filter(item => item === "");
     if (songTagsResult.length == 5) {
       alert("#해시태그는 최소 1개 이상을 입력하세요.");
@@ -105,8 +96,8 @@ const RecipeEdit = () => {
     if (recipe === "") {
       alert("레시피를 입력하세요.");
     }
-    if (pics === "") {
-      alert("");
+    if (uploadedImage === null) {
+      alert("사진을 넣어주세요.");
       return;
     }
     if (review === "") {
@@ -131,15 +122,42 @@ const RecipeEdit = () => {
     putMeal(obj, successEdit);
   };
 
+  // AddImages 컴포넌트로부터 이미지 업로드 후 주소를 받아오는 함수
+  const handleImageUpload = async file => {
+    const imageUrl = await uploadImageToStorage(file);
+
+    // 기존 pics 배열과 중복을 방지하기 위해 이미지 주소가 없는 경우에만 추가
+    if (!pics.includes(imageUrl)) {
+      setPics(prevPics => [...prevPics, imageUrl]);
+    }
+    setUploadedImage(imageUrl);
+  };
+
+  // 이미지 업로드 로직
+  const uploadImageToStorage = async file => {
+    try {
+      // Firebase Storage에 업로드할 경로 설정 (예시: images 폴더에 업로드)
+      const storageRef = ref(storage, `images/${file.name}`);
+
+      // 이미지를 Storage에 업로드하고 업로드 결과를 받아옴
+      const fbRes = await uploadBytes(storageRef, file);
+
+      // 업로드된 이미지의 다운로드 URL을 받아옴
+      const imageUrl = await getDownloadURL(fbRes.ref);
+
+      // 받아온 이미지 URL을 반환
+      return imageUrl;
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      // 오류 처리 (예: 사용자에게 알림 등)
+      throw error;
+    }
+  };
+
   const successEdit = () => {
     alert("수정이 완료되었습니다.");
     navigate("/meal");
   };
-
-  useEffect(() => {
-    // 최초 렌더링 시 실행
-    getMoreSong(imeal, successMoreData);
-  }, []);
 
   const successMoreData = _data => {
     // setMoreData, setTags
@@ -184,33 +202,20 @@ const RecipeEdit = () => {
     ));
   };
 
-  // useEffect(() => {
-  //   // 데이터가 바뀌면
-  //   const tagsArr = moreData.tags;
-  //   console.log("무한루프될까?", tagsArr);
-  //   setTags(tagsArr);
-  // }, [moreData]);
+  useEffect(() => {
+    // 최초 렌더링 시 실행
+    getMoreSong(imeal, successMoreData);
+  }, []);
 
   return (
     <RecipeWriteWrap>
       <RecipeWriteTop>
         {/* 이미지 추가 */}
-        <AddImages>
-          <AddImagesLeft>
-            <img
-              src={moreData.pics[0]}
-              alt=""
-              onChange={e => handleChangePics(e)}
-            />
-          </AddImagesLeft>
-          <AddImagesMid>
-            <img src={moreData.pics[1]} alt="" />
-          </AddImagesMid>
-          <AddImagesRight>
-            <img src={moreData.pics[2]} alt="" />
-          </AddImagesRight>
-        </AddImages>
-
+        <AddImages
+          onImageUpload={(file, index) => handleImageUpload(file, index)}
+          setPics={setPics}
+          imageUrl={pics}
+        ></AddImages>
         {/* 텍스트 박스 */}
         <TextBoxes>
           <input
@@ -219,15 +224,13 @@ const RecipeEdit = () => {
             value={title}
             onChange={e => handleChangeTitle(e)}
           ></input>
-          <input
+          <textarea
             className="textboxes-ingre"
             placeholder="재료를 입력해주세요."
             value={ingredient}
             onChange={e => handleChangeIngredient(e)}
-          ></input>
-
+          ></textarea>
           {/* 해시 태그 */}
-          {/* <AddTags onTagsUpdate={} tags={tags}></AddTags> */}
           <TextBoxHashTagsSong>
             {songTags.map((item, index) => (
               <Edittags
@@ -238,7 +241,6 @@ const RecipeEdit = () => {
               ></Edittags>
             ))}
           </TextBoxHashTagsSong>
-
           {/* 레시피 기록 및 다이어리 코멘트 */}
           <RecipeComment>
             <textarea

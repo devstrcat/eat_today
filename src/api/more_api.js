@@ -1,5 +1,4 @@
 import axios from "axios";
-import { SERVER_URL } from "../components/meal/config";
 
 export const getMore = async (imeal, setMoreData) => {
   try {

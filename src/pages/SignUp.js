@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { PostUser } from "../api/user/user_api";
 import { Cover, Log, MyUser, UserButton } from "../styles/myuser/MyUser";

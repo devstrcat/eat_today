@@ -3,13 +3,8 @@ import { AddImagesDiv } from "../../styles/write/addimages";
 import styled from "@emotion/styled";
 import "../../styles/write/addimages.css";
 import { Modal, Upload } from "antd";
+import { deleteObject, ref } from "firebase/storage";
 import { storage } from "../../fb/firebaseconfig";
-import {
-  deleteObject,
-  getDownloadURL,
-  ref,
-  uploadBytes,
-} from "firebase/storage";
 
 const Uimg = styled.div`
   width: 87px;
@@ -33,7 +28,7 @@ const getBase64 = file =>
     reader.onerror = error => reject(error);
   });
 
-const AddImages = ({ onImageUpload }) => {
+const AddImages = props => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -50,39 +45,41 @@ const AddImages = ({ onImageUpload }) => {
     setPreviewTitle(true);
   };
 
-  // const handleChange = async ({ fileList: newFileList, file }) => {
-  //   // Handle file upload for all statuses
-  //   const imageUrl = await handleFileUpload(file.originFileObj);
-  //   console.log("Image URL:", imageUrl);
+  const handleChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
 
-  //   setFileList(newFileList);
-  //   onImageUpload(imageUrl);
-  // };
+    // 이미지가 업로드되면 onImageUpload 함수 호출
+    newFileList.forEach(async (file, index) => {
+      if (file.status === "done" && !file.alreadyUploaded) {
+        file.alreadyUploaded = true;
+        await props.onImageUpload(file.originFileObj, index);
+      }
+    });
+  };
 
-  // const handleFileUpload = async file => {
-  //   try {
-  //     const storageRef = ref(storage, "images/" + file.name);
-  //     await uploadBytes(storageRef, file);
-  //     const downloadURL = await getDownloadURL(storageRef);
-  //     return downloadURL;
-  //   } catch (error) {
-  //     console.error("Error uploading file:", error);
-  //     throw error; // 에러를 다시 throw하여 호출자에게 전파
-  //   }
-  // };
+  const handleRemove = async file => {
+    try {
+      const deleteFileName = `images/${file.name}`;
+      console.log("삭제 진행 중 ", deleteFileName);
 
-  // const removeFile = async file => {
-  //   // 삭제할 파일의 경로를 설정
-  //   const storageRef = ref(storage, "images/" + file.name);
-  //   await deleteObject(storageRef);
+      const storageRef = ref(storage, `images/${file.name}`);
+      await deleteObject(storageRef);
 
-  //   // 삭제할 파일을 fileList에서 제거
-  //   const newFileList = fileList.filter(item => item.uid !== file.uid);
-  //   setFileList(newFileList);
-  // };
+      if (props.imageUrl) {
+        const getName = encodeURIComponent(`images/${file.name}`);
 
-  const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
+        const filteredImageUrls = props.imageUrl.filter(
+          url => !url.includes(getName),
+        );
+        props.setPics(filteredImageUrls);
 
+        const filteredFileList = fileList.filter(f => f.uid !== file.uid);
+        setFileList(filteredFileList);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const uploadButton = (
     <Uimg>
       <img src="/images/write/add_icon.svg"></img>
@@ -100,16 +97,11 @@ const AddImages = ({ onImageUpload }) => {
           fileList={fileList}
           onPreview={handlePreview}
           onChange={handleChange}
-          // onRemove={removeFile}
+          onRemove={handleRemove}
         >
           {fileList.length >= 3 ? null : uploadButton}
         </Upload>
-        <Modal
-          open={previewOpen}
-          title={previewTitle}
-          footer={null}
-          onCancel={handleCancel}
-        >
+        <Modal open={previewOpen} footer={null} onCancel={handleCancel}>
           <img
             alt="example"
             style={{

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Input, Space, Tag, Tooltip } from "antd";
-import "../../styles/write/addtags.css";
 
 // emotion (ant 디자인에서 가져와서 스타일 수정)
 const tagInputStyle = {
@@ -85,11 +84,7 @@ const AddTags = ({ onTagsUpdate }) => {
       {tags.map((tag, index) => {
         const isLongTag = tag.length > 10;
         const tagElem = (
-          <Tag
-            key={tag}
-            closable={index !== 0}
-            onClose={() => handleClose(tag)}
-          >
+          <Tag key={tag} closable={true} onClose={() => handleClose(tag)}>
             #<span>{isLongTag ? `${tag.slice(0, 10)}...` : tag}</span>
           </Tag>
         );

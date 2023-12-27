@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Back, Boxs, Content, Cover, Phrases } from "../styles/notfound";
 
 const NotFound = () => {
@@ -8,7 +8,7 @@ const NotFound = () => {
     <div>
       <Cover>
         <Boxs>
-          <Phrases>400 ERROR</Phrases>
+          <Phrases>ERROR</Phrases>
           <Content>
             원하시는 결과를 찯을수 없습니다.
             <br />
