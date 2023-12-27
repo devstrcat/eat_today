@@ -85,7 +85,7 @@ const RecipeMore = () => {
             className={isClicked ? "bookmarkhover" : "bookmark"}
             onClick={bookMarkHover}
           ></button>
-          <Link to="/meal/edit">
+          <Link to={`/meal/edit/${imeal}`}>
             <button className="edit"></button>
           </Link>
           <Link to="/meal">

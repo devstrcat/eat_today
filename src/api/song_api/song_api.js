@@ -6,35 +6,52 @@ import axios from "axios";
 // tagIdx: 태그 인덱스번호(List), tags: 바꾸고 싶은 태그(List)
 // (result(-4): 입력받은 제목, 재료, 타이틀이 없습니다, (0): 실패, (1): 성공)
 
-
 // 수정페이지에 내용(상세페이지) 가져오기
-export const fetchMeal = async () => {
-  console.log("getEdit")
+export const getMoreSong = async (imeal, successMoreData) => {
   try {
-    const res = await fetch("/api/meal/{imeal}")
-    const data = await res.json()
-    console.log(res.data)
+    const url = `/api/meal/${imeal}`;
+    const res = await axios.get(url);
+    successMoreData(res.data);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     alert(
-      " 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
+      " 1 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
     );
-    fetchMeal()
+
+    // 오류시 작업할 fake 데이터
+    successMoreData({
+      imeal: 30,
+      title: "스파게티",
+      review: "맛있었다",
+      createdAt: "2023-12-14 12:54:00",
+      pics: [
+        "https://i.namu.wiki/i/lr2V-3TTyfhyeRB7Ovhi9CSfxAOOHwfXxei63rf9udC8vJwbOevFk6jGr8wRpHwaUcqfpgGEpTO781442-VLTSxMcE0xkP7somI7myWLY3-Gwt1PbkhN9ZIWGWOexofkIQJaBgP3MtJvlKFJBONDSA.webp",
+      ],
+      tags: ["string"],
+      recipe: "삶기",
+      ingredient: "면",
+      bookMark: 0,
+    });
   }
-}
+};
 
 // 수정 페이지 (put)
-export const putMeal = async (obj) => {
-  console.log("putMeal");
+export const putMeal = async (obj, successEdit) => {
+  console.log("putMeal", obj);
   try {
-    const res = await axios.fetch("/api/meal", obj);
+    const res = await axios.put("/api/meal", obj);
+    // console.log(res.status);
     console.log(res.data);
     //상태체크하기
     const situation = res.status.toString();
+
     if (situation.charAt(0) === "2") {
       //정상 처리
-    } else if (situation.situation(0) === "4") {
-      alert(" 존재하지 않는 주소를 입력하셨거나요청하신 페이지의 주소가 변경,삭제되어 찾을 수 없습니다 ");
+      successEdit();
+    } else if (situation.charAt(0) === "4") {
+      alert(
+        " 존재하지 않는 주소를 입력하셨거나요청하신 페이지의 주소가 변경,삭제되어 찾을 수 없습니다 ",
+      );
     }
   } catch (error) {
     // 서버의 장애 발생
@@ -54,7 +71,7 @@ export const putMeal = async (obj) => {
 // (-7): 비정상적인 태그 등록)
 
 // 작성 페이지 (post)
-export const postMeal = async (obj) => {
+export const postMeal = async obj => {
   console.log("postMeal", obj);
 
   try {
@@ -69,7 +86,7 @@ export const postMeal = async (obj) => {
   }
 };
 
-export const deleteMealTag = async (itag) => {
+export const deleteMealTag = async itag => {
   console.log("deleteMealTag", itag);
   try {
     const res = await axios.delete(`/api/meal/tag?itag=${itag}`);
@@ -115,4 +132,3 @@ export const deleteMealPic = async (imeal, ipic) => {
     // 가짜 테스트
   }
 };
-

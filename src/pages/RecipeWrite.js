@@ -17,7 +17,7 @@ const initData = {
   ingredient: "",
   recipe: "",
   review: "",
-  pics: [],
+  pics: [""],
   tags: [""],
 };
 const RecipeWrite = () => {
@@ -35,15 +35,16 @@ const RecipeWrite = () => {
   const handleChangeIngredient = e => {
     setIngredient(e.target.value);
   };
+  // 태그 내용을 입력하기 위해.
   const handleChangeTags = updatedTags => {
     setTags(updatedTags);
   };
   const handleChangeRecipe = e => {
     setRecipe(e.target.value);
   };
-  // const handleChangePics = e => {
-  //   setPics(e.target.value);
-  // };
+  const handleChangePics = e => {
+    setPics(e.target.value);
+  };
   const handleChangeReview = e => {
     setReview(e.target.value);
   };
@@ -69,6 +70,8 @@ const RecipeWrite = () => {
       alert("재료를 입력하세요.");
       return;
     }
+    // 태그의 갯수가 0 이나 빈칸일 떄, 알림이 뜬다.
+
     if (tags.length === 0 || tags[0] === "") {
       alert("태그를 입력하세요.");
       return;
