@@ -7,26 +7,26 @@ export const MemberWrap = styled.div`
   position: relative;
   top: 10px;
   gap: 40px; */
-  /* font-family: 'KimjungchulMyungjo-Bold';  */ 
+  /* font-family: 'KimjungchulMyungjo-Bold';  */
 `;
 
 export const MemberBox = styled.div`
-display: flex;
-img {
+  display: flex;
+  img {
     width: 100px;
     height: 70px;
-}
-.circle {
+  }
+  .circle {
     width: 80px;
     height: 80px;
-    border: 1.5px solid #C6BEB3;
+    border: 1.5px solid #c6beb3;
     border-radius: 50px;
     text-align: center;
     font-size: 12px;
-}
-.role {
+  }
+  .role {
     font-size: 13px;
-}
+  }
   /* padding: 9px 7px 7px 7px;
   width: 140px;
   height: 80px;
@@ -59,4 +59,3 @@ img {
     background-color: #FFA02630;
   } */
 `;
-

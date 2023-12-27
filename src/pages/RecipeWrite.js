@@ -4,13 +4,17 @@ import {
   RecipeComment,
   RecipeWriteTop,
   RecipeWriteWrap,
-  TextBoxHashTags,
   TextBoxes,
   WriteButtons,
 } from "../styles/write/recipewriteStyle";
 import AddImages from "../components/write/AddImages";
 import { postMeal } from "../api/song_api/song_api";
-import AddTags from "../components/write/Addtags";
+import {
+  getDownloadURL,
+  ref,
+  storage,
+  uploadBytes,
+} from "../fb/firebaseconfig";
 
 const initData = {
   title: "",
@@ -35,17 +39,46 @@ const RecipeWrite = () => {
   const handleChangeIngredient = e => {
     setIngredient(e.target.value);
   };
-  const handleChangeTags = updatedTags => {
-    setTags(updatedTags);
-  };
   const handleChangeRecipe = e => {
     setRecipe(e.target.value);
   };
-  // const handleChangePics = e => {
-  //   setPics(e.target.value);
-  // };
   const handleChangeReview = e => {
     setReview(e.target.value);
+  };
+
+  // 이미지 주소를 저장할 state
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  // AddImages 컴포넌트로부터 이미지 업로드 후 주소를 받아오는 함수
+  const handleImageUpload = async file => {
+    const imageUrl = await uploadImageToStorage(file);
+
+    // 기존 pics 배열과 중복을 방지하기 위해 이미지 주소가 없는 경우에만 추가
+    if (!pics.includes(imageUrl)) {
+      setPics(prevPics => [...prevPics, imageUrl]);
+    }
+    setUploadedImage(imageUrl);
+  };
+
+  // 이미지 업로드 로직
+  const uploadImageToStorage = async file => {
+    try {
+      // Firebase Storage에 업로드할 경로 설정 (예시: images 폴더에 업로드)
+      const storageRef = ref(storage, `images/${file.name}`);
+
+      // 이미지를 Storage에 업로드하고 업로드 결과를 받아옴
+      const fbRes = await uploadBytes(storageRef, file);
+
+      // 업로드된 이미지의 다운로드 URL을 받아옴
+      const imageUrl = await getDownloadURL(fbRes.ref);
+
+      // 받아온 이미지 URL을 반환
+      return imageUrl;
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      // 오류 처리 (예: 사용자에게 알림 등)
+      throw error;
+    }
   };
 
   // 내용 재 작성 (리셋 기능)
@@ -54,13 +87,13 @@ const RecipeWrite = () => {
     setIngredient("");
     setTags("");
     setRecipe("");
-    setPics("");
+    setPics([]);
     setReview("");
   };
   // 내용 서버전송
   // 비어있는지를 체크하여 빈 경우에는 경고를 표시하고
   // 폼의 제출을 막을 수 있다.
-  const handelClickSubmit = () => {
+  const handelClickSubmit = async () => {
     if (title === "") {
       alert("제목을 입력하세요.");
       return;
@@ -69,14 +102,14 @@ const RecipeWrite = () => {
       alert("재료를 입력하세요.");
       return;
     }
-    if (tags.length === 0 || tags[0] === "") {
-      alert("태그를 입력하세요.");
-      return;
-    }
+    // if (tags.length === 0 || tags[0] === "") {
+    //   alert("태그를 입력하세요.");
+    //   return;
+    // }
     if (recipe === "") {
       alert("레시피를 입력하세요.");
     }
-    if (pics === "") {
+    if (uploadedImage === null) {
       alert("사진을 넣어주세요.");
       return;
     }
@@ -95,20 +128,20 @@ const RecipeWrite = () => {
     };
     postMeal(obj);
   };
-
-  const handleImageUpload = imageUrl => {
-    setPics(prevPics => [...prevPics, imageUrl]);
-  };
-
   // 한번 호출한다.
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(pics);
+  }, [pics]);
 
   return (
     <div>
       <RecipeWriteWrap>
         <RecipeWriteTop>
           {/* 이미지 추가 */}
-          <AddImages onImageUpload={handleImageUpload}></AddImages>
+          <AddImages
+            onImageUpload={(file, index) => handleImageUpload(file, index)}
+            setPics={setPics} imageUrl={pics}
+          ></AddImages>
           {/* 텍스트 박스 */}
           <TextBoxes>
             <input
@@ -124,7 +157,6 @@ const RecipeWrite = () => {
               onChange={e => handleChangeIngredient(e)}
             />
             {/* 해시 태그 */}
-            <AddTags onTagsUpdate={handleChangeTags}></AddTags>
             {/* 레시피 기록 및 다이어리 코멘트 */}
             <RecipeComment>
               <input
