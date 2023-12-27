@@ -2,12 +2,12 @@ import React from "react";
 import { Back, Boxs, Content, Cover, Phrases } from "../styles/notfound";
 import { Link } from "react-router-dom";
 
-const NotFoundSS = () => {
+const NotFoundAll = () => {
   return (
     <div>
       <Cover>
         <Boxs>
-          <Phrases>ERROR</Phrases>
+          <Phrases>404ERROR</Phrases>
           <Content>
             원하시는 결과를 찯을수 없습니다.
             <br />
@@ -24,4 +24,4 @@ const NotFoundSS = () => {
   );
 };
 
-export default NotFoundSS;
+export default NotFoundAll;

@@ -1,7 +1,12 @@
 import styled from "@emotion/styled";
 
-export const Wraps = styled.div`
+export const Cover = styled.div`
+  position: fixed;
+  width: 320px;
   height: 100vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: #ffebd0;
   img {
     width: 100px;
@@ -14,26 +19,23 @@ export const Wraps = styled.div`
   }
 `;
 
-export const Ccc = styled.div`
-  position: relative;
+export const MyUser = styled.div`
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+
   flex-direction: column;
   padding-top: 100%;
   width: 300px;
-  /* background-color: hotpink; */
-  /* height: 100px; */
 `;
-export const Aaa = styled.div`
+export const Log = styled.div`
   width: 320px;
-  /* height: 30px; */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   padding-bottom: 10px;
-  /* background-color: yellow; */
+
   margin-top: 20px;
   gap: 5px;
   .user {
@@ -47,9 +49,9 @@ export const Aaa = styled.div`
   }
 `;
 export const Name = styled.div`
-display: flex;
-`
-export const Baa = styled.button`
+  display: flex;
+`;
+export const UserButton = styled.button`
   margin: 15px;
   color: #fff;
   border: 1px solid;
