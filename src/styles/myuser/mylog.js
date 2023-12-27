@@ -1,7 +1,12 @@
 import styled from "@emotion/styled";
 
-export const myWraps = styled.div`
+export const Wraps = styled.div`
+  position: fixed;
+  width: 320px;
   height: 100vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: #ffebd0;
   img {
     width: 100px;
@@ -14,7 +19,7 @@ export const myWraps = styled.div`
   }
 `;
 
-export const myWrap = styled.div`
+export const LogBoxs = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -25,7 +30,7 @@ export const myWrap = styled.div`
   /* background-color: hotpink; */
   /* height: 100px; */
 `;
-export const myLogForm = styled.div`
+export const LogBox = styled.div`
   width: 320px;
   /* height: 30px; */
   display: flex;
@@ -46,10 +51,10 @@ export const myLogForm = styled.div`
     border-radius: 30px;
   }
 `;
-export const myName = styled.div`
+export const Name = styled.div`
   display: flex;
 `;
-export const Baa = styled.button`
+export const ButtonLog = styled.button`
   margin: 15px;
   color: #fff;
   border: 1px solid;

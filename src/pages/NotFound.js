@@ -8,7 +8,7 @@ const NotFound = () => {
     <div>
       <Cover>
         <Boxs>
-          <Phrases>404 ERROR</Phrases>
+          <Phrases>400 ERROR</Phrases>
           <Content>
             원하시는 결과를 찯을수 없습니다.
             <br />

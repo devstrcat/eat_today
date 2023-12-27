@@ -14,4 +14,4 @@ const MealSmall = ({ data }) => {
   );
 };
 
-export default MealSmall;9
+export default MealSmall;

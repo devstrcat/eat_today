@@ -93,6 +93,27 @@ export const TextBoxes = styled.div`
   }
 `;
 
+export const TextBoxHashTagsSong = styled.div`
+  position: relative;
+  width: 266px;
+  display: flex;
+  margin-left: 20px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+  gap: 10px;
+  > span {
+    display: inline;
+    box-sizing: border-box;
+
+    input[type="text"] {
+      max-width: 100px;
+      min-width: 64px;
+      border: none;
+      width: 90%;
+    }
+  }
+`;
+
 export const TextBoxHashTags = styled.ul`
   position: relative;
   width: 266px;
@@ -206,6 +227,7 @@ export const WriteButtons = styled.div`
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background-color: #fff;
     border-radius: 100px;
+    cursor: pointer;
 
     img {
       width: 30px;
@@ -224,6 +246,8 @@ export const WriteButtons = styled.div`
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     background: #ffebd0;
     border-radius: 100px;
+
+    cursor: pointer;
 
     img {
       width: 30px;
