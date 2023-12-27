@@ -56,8 +56,7 @@ export const putMeal = async (obj, successEdit) => {
   } catch (error) {
     // 서버의 장애 발생
     console.log(error);
-    alert("서버가 불안정합니다. 다시 시도해주세요.");
-    // 가짜 테스트
+    window.location.href = "/";
   }
 };
 
@@ -82,7 +81,7 @@ export const postMeal = async obj => {
     console.log("일지전송 성공", res.data);
   } catch (error) {
     console.log(error);
-    alert("서버 에러");
+    window.location.href = "/";
   }
 };
 
@@ -101,8 +100,7 @@ export const deleteMealTag = async itag => {
   } catch (error) {
     // 서버의 장애 발생
     console.log(error);
-    alert("서버가 불안정합니다. 다시 시도해주세요.");
-    // 가짜 테스트
+    window.location.href = "/";
   }
 };
 
@@ -128,7 +126,6 @@ export const deleteMealPic = async (imeal, ipic) => {
   } catch (error) {
     // 서버의 장애 발생
     console.log(error);
-    alert("서버가 불안정합니다. 다시 시도해주세요.");
-    // 가짜 테스트
+    window.location.href = "/";
   }
 };
