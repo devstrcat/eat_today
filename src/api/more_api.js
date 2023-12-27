@@ -9,9 +9,8 @@ export const getMore = async (imeal, setMoreData) => {
   } catch (error) {
     console.log(error);
     alert(
-
-        " 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
-      );
+      " 1 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
+    );
 
     // 오류시 작업할 fake 데이터
     setMoreData({
@@ -31,17 +30,16 @@ export const getMore = async (imeal, setMoreData) => {
 };
 
 export const deleteMore = async (imeal, setMoreData) => {
-    console.log( "imeal=", imeal);
-    try {
-      const url = `/api/meal?imeal=${imeal}`;
-      const res = await axios.delete(url);
-      setMoreData(res.data);
-      console.log("데이터 삭제 성공");
-    } catch (error) {
-      console.log(error);
-      alert(
-        " 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
-        );
-    }
-  };
-
+  console.log("imeal=", imeal);
+  try {
+    const url = `/api/meal?imeal=${imeal}`;
+    const res = await axios.delete(url);
+    setMoreData(res.data);
+    console.log("데이터 삭제 성공");
+  } catch (error) {
+    console.log(error);
+    alert(
+      " 2 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
+    );
+  }
+};
