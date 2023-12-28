@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Input, Space, Tag, Tooltip } from "antd";
+import { Tag } from "antd";
 
 const Edittags = ({ item, itemIndex, changeTags }) => {
   // console.log(itemIndex, item);
-  const isLongTag = item.length > 10;
   const [edit, setEdit] = useState(false);
   const [tag, setTag] = useState("");
   const handlerChange = e => {

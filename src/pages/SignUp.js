@@ -35,36 +35,33 @@ const SignUp = () => {
         <img src="../../images/main_logo.svg" alt="유저사진"></img>
         <Log>
           <div>
-            닉네임:
+            <span>닉네임:</span>
             <input
               type="text"
               value={nm}
               onChange={e => setNm(e.target.value)}
             />
           </div>
-          <label className="user">
-            아이디:
+          <div>
+            <span>아이디:</span>
             <input
               type="text"
               value={uid}
               onChange={e => setUid(e.target.value)}
               className="id"
             />
-          </label>
+          </div>
 
-          <label className="user">
-            비밀번호:
+          <div>
+            <span>비밀번호:</span>
             <input
               type="password"
               value={upw}
               onChange={e => setUpw(e.target.value)}
             />
-          </label>
+          </div>
           <UserButton onClick={e => handleClickUser(e)}>회원가입</UserButton>
         </Log>
-        {/* <Link to={"/meal"}>
-          <UserButton>홈으로</UserButton>
-        </Link> */}
       </MyUser>
     </Cover>
   );

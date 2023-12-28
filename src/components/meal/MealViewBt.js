@@ -11,7 +11,7 @@ const MealViewBt = props => {
   const ButtonDiv = styled.div`
     display: flex;
     justify-content: right;
-    margin: 10px 20px 0;
+    padding: 60px 20px 0;
   `;
 
   const ButtonBig = styled.button`

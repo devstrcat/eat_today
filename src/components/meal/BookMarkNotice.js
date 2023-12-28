@@ -24,7 +24,7 @@ const BookMarkNotice = props => {
           </BookMarkNoticePics>
           <BookMarkNoticeTags>
             {data.tags &&
-              data.tags.map((tags, index) => <span key={index}>#{tags}</span>)}
+              data.tags.map((tags, index) => <span key={tags}>{`#${tags}`}</span>)}
           </BookMarkNoticeTags>
         </BookMarkNoticeDiv>
       </Link>

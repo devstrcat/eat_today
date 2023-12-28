@@ -8,10 +8,11 @@ import {
   WriteButtons,
 } from "../styles/write/recipewriteStyle";
 import AddImages from "../components/write/AddImages";
-import { postMeal } from "../api/song_api/song_api";
+import { postMeal } from "../api/write/write_api";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../fb/firebaseconfig";
 import AddTags from "../components/write/Addtags";
+import { useNavigate } from "react-router";
 
 const initData = {
   title: "",
@@ -28,7 +29,7 @@ const RecipeWrite = () => {
   const [review, setReview] = useState("");
   const [pics, setPics] = useState([]);
   const [songTags, setSongTags] = useState([]);
-  
+  const navigate = useNavigate();
 
   // 내용 업데이트 (내용 작성)
   const handleChangeTitle = e => {
@@ -127,10 +128,15 @@ const RecipeWrite = () => {
       // 받아온 이미지 URL을 반환
       return imageUrl;
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error(error);
       // 오류 처리 (예: 사용자에게 알림 등)
       throw error;
     }
+  };
+
+  const successWrite = () => {
+    alert("작성이 완료되었습니다.");
+    navigate("/meal");
   };
 
   // 한번 호출한다.
@@ -194,6 +200,7 @@ const RecipeWrite = () => {
               className="complete-bt"
               onClick={e => {
                 handelClickSubmit(e);
+                successWrite();
               }}
             >
               <img src="/images/write/check_icon.svg" alt="" />

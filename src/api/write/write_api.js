@@ -14,24 +14,7 @@ export const getMoreSong = async (imeal, successMoreData) => {
     successMoreData(res.data);
   } catch (error) {
     console.log(error);
-    alert(
-      " 1 존재하지 않는 주소를 입력하셨거나 요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다 ",
-    );
-
-    // 오류시 작업할 fake 데이터
-    successMoreData({
-      imeal: 30,
-      title: "스파게티",
-      review: "맛있었다",
-      createdAt: "2023-12-14 12:54:00",
-      pics: [
-        "https://i.namu.wiki/i/lr2V-3TTyfhyeRB7Ovhi9CSfxAOOHwfXxei63rf9udC8vJwbOevFk6jGr8wRpHwaUcqfpgGEpTO781442-VLTSxMcE0xkP7somI7myWLY3-Gwt1PbkhN9ZIWGWOexofkIQJaBgP3MtJvlKFJBONDSA.webp",
-      ],
-      tags: ["string"],
-      recipe: "삶기",
-      ingredient: "면",
-      bookMark: 0,
-    });
+    window.location.href = "/";
   }
 };
 
@@ -71,14 +54,9 @@ export const putMeal = async (obj, successEdit) => {
 
 // 작성 페이지 (post)
 export const postMeal = async obj => {
-  console.log("postMeal", obj);
-
   try {
-    // http://112.222.157.156:5214/swagger.html
-    // http://192.168.0.144:5214/api/meal
-
     const res = await axios.post("/api/meal", obj);
-    console.log("일지전송 성공", res.data);
+    // console.log("일지전송 성공", res.data);
   } catch (error) {
     console.log(error);
     window.location.href = "/";
@@ -89,7 +67,6 @@ export const deleteMealTag = async itag => {
   console.log("deleteMealTag", itag);
   try {
     const res = await axios.delete(`/api/meal/tag?itag=${itag}`);
-    console.log(res.data);
     if (res.data === 0) {
       alert("삭제 실패");
       //
@@ -112,7 +89,6 @@ export const deleteMealPic = async (imeal, ipic) => {
   try {
     //?imeal=0&ipic=0
     const res = await axios.delete(`/api/meal/pic?imeal=${imeal}&ipic=${ipic}`);
-    console.log(res.data);
     if (res.data === 0) {
       alert("삭제 실패");
       //

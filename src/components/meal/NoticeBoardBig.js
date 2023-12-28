@@ -24,8 +24,8 @@ const NoticeBoard = ({ data }) => {
             )}
           </NoticeBoardPics>
           <NoticeBoardTags>
-            {data.tags &&
-              data.tags.map((tags, index) => <span key={index}>#{tags}</span>)}
+          {data.tags &&
+              data.tags.map((tags, index) => <span key={tags}>{`#${tags}`}</span>)} 
           </NoticeBoardTags>
           <NoticeBoardReview>
             <p>{data.review}</p>

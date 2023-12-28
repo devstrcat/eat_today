@@ -18,6 +18,7 @@ const App = () => {
   return (
     <Wrap width={320} minh={100}>
       <Routes>
+        
         <Route path="/" element={<Intro />} />
         <Route path="/meal" element={<Index />}></Route>
         <Route path="/meal/write" element={<RecipeWrite />}></Route>

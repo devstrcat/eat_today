@@ -9,7 +9,7 @@ import {
 } from "../styles/write/recipeeditStyle";
 import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
-import { getMoreSong, putMeal } from "../api/song_api/song_api";
+import { getMoreSong, putMeal } from "../api/write/write_api";
 import Edittags from "../components/write/Edittags";
 import "../styles/write/addtags.css";
 import {
@@ -105,7 +105,7 @@ const RecipeEdit = () => {
       return;
     }
 
-    // console.log(songTags);
+    const songTagsArr = songTags.filter(item => item !== "");
 
     const obj = {
       imeal: imeal,
@@ -113,12 +113,9 @@ const RecipeEdit = () => {
       ingredient: ingredient,
       recipe: recipe,
       review: review,
-      picIdx: [0, 1],
       pics: pics,
-      tagIdx: [0, 1, 2, 3, 4],
-      tags: songTags,
+      tags: songTagsArr,
     };
-    console.log("보낼 데이터 : ", obj);
     putMeal(obj, successEdit);
   };
 
@@ -148,7 +145,7 @@ const RecipeEdit = () => {
       // 받아온 이미지 URL을 반환
       return imageUrl;
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error(error);
       // 오류 처리 (예: 사용자에게 알림 등)
       throw error;
     }
@@ -187,7 +184,6 @@ const RecipeEdit = () => {
     // console.log(_index, _tagTxt);
     const arr = [...songTags];
     arr[_index] = _tagTxt;
-    console.log(arr);
     setSongTags(arr);
   };
 

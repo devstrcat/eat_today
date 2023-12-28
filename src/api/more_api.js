@@ -17,7 +17,6 @@ export const deleteMore = async (imeal, setMoreData) => {
     const url = `/api/meal?imeal=${imeal}`;
     const res = await axios.delete(url);
     setMoreData(res.data);
-    console.log("데이터 삭제 성공");
   } catch (error) {
     console.log(error);
     window.location.href = "/";

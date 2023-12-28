@@ -21,7 +21,7 @@ const NoticeBoardSmall = props => {
           </NoticeBoardPics>
           <NoticeBoardTags>
             {data.tags &&
-              data.tags.map((tags, index) => <span key={index}>#{tags}</span>)}
+              data.tags.map((tags, index) => <span key={tags}>{`#${tags}`}</span>)}
           </NoticeBoardTags>
         </NoticeBoardDiv>
       </Link>

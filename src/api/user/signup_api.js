@@ -7,9 +7,9 @@ export const post = `${SERVER_URL}/api/user/signin`;
 export const PostUserS = async objs => {
   try {
     const res = await axios.post(`${SERVER_URL}/api/user/signin`, objs);
-    console.log(res.data);
+    // console.log(res.data);
   } catch (error) {
     console.log(error);
-    console.log("서버가 불안정합니다.");
+    window.location.href = "/";
   }
 };

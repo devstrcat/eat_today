@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { PostUserS } from "../api/user/signup_api";
-import { ButtonLog, LogBox, LogBoxs, Wraps } from "../styles/myuser/mylog";
+import {
+  ButtonLog,
+  LogBox,
+  LogBoxs,
+  Sign,
+  Wraps,
+} from "../styles/myuser/mylog";
 
 const LogIn = () => {
   //로그인
@@ -52,10 +58,10 @@ const LogIn = () => {
             />
           </label>
         </LogBox>
-        <Link to={"/meal/signup"}>회원가입</Link>
-        <ButtonLog onClick={e => goRouter(e)}>
-          로그인
-           </ButtonLog>
+        <Link to={"/meal/signup"}>
+          <Sign>회원가입</Sign>
+        </Link>
+        <ButtonLog onClick={e => goRouter(e)}>로그인</ButtonLog>
       </LogBoxs>
     </Wraps>
   );

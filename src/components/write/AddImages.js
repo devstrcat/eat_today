@@ -57,9 +57,6 @@ const AddImages = props => {
 
   const handleRemove = async file => {
     try {
-      const deleteFileName = `images/${file.name}`;
-      console.log("삭제 진행 중 ", deleteFileName);
-
       const storageRef = ref(storage, `images/${file.name}`);
       await deleteObject(storageRef);
 
@@ -83,10 +80,9 @@ const AddImages = props => {
     if (!props.previewImageUrls) {
       // 배열이 없을 때 아무것도 실행안하게 함
     } else {
-      // 배열이 값이 있을 때 실행할 로직
       const defaultFileList = props.previewImageUrls.map((url, index) => ({
         uid: `${index + 1}`,
-        name: `${props.imageUrl}`, // 파일 이름 예시
+        name: `${props.imageUrl}`,
         status: "done",
         url: url,
       }));

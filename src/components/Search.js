@@ -1,14 +1,19 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
+import React from "react";
 
 // emotion
 const HeaderStyle = styled.header`
+  position: fixed;
+  top: 0;
+  max-width: 320px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 28px;
   height: 30px;
   background-color: #fdb456;
+  z-index: 10;
 `;
 const SearchForm = styled.form`
   display: flex;
@@ -35,7 +40,6 @@ const SearchButton = styled.button`
 `;
 
 const Search = props => {
-  
   return (
     <HeaderStyle>
       <SearchForm>
