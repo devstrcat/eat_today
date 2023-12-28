@@ -11,7 +11,7 @@ const SignUp = () => {
   const [nm, setNm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   // setPic은 아직 사용 안함
 
@@ -30,7 +30,7 @@ const SignUp = () => {
     setIsModalOpen(true);
     alert(`${uid}님이 가입 되셨습니다.`);
     PostUser(obj);
-    Navigate("/meal/login");
+    navigate("/meal/login");
   };
 
   const handleOk = () => {

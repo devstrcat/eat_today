@@ -28,7 +28,6 @@ const App = () => {
         <Route path="/meal/signup" element={<SignUp />} />
         <Route path="/meal/login" element={<LogIn />} />
         <Route path="*" element={<NotFound />} />
-        {/* <Route path="/meal/400" element={<NotFound />} /> */}
       </Routes>
     </Wrap>
   );

@@ -70,7 +70,7 @@ const RecipeMore = () => {
       // 새로운 상태값을 기존 상태값을 기반으로 적용
       setIsClicked(prevClicked => !prevClicked);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
 

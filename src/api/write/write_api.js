@@ -19,7 +19,7 @@ export const getMoreSong = async (imeal, successMoreData) => {
 
 // 수정 페이지 (put)
 export const putMeal = async (obj, successEdit) => {
-  console.log("putMeal", obj);
+  // console.log("putMeal", obj);
   try {
     const res = await axios.put("/api/meal", obj);
     // console.log(res.status);
