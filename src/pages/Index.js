@@ -36,16 +36,15 @@ const Index = () => {
         setData(prevData => [...prevData, ...newData]);
       },
       UseSearch,
-      error500,
     );
   };
   const resetClickGet = () => {
-    getMeal(1, 8, 0, setData, error500);
+    getMeal(1, 8, 0, setData);
   };
 
-  const error500 = () => {
-    navigate("/meal");
-  };
+  // const error500 = () => {
+  //   navigate("/meal");
+  // };
 
   // 검색 조건문
   const handleChange = event => {
