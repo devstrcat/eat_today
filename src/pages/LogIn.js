@@ -26,9 +26,24 @@ const LogIn = () => {
       return;
     }
 
-    PostUserS(objs);
-    alert(`${uid}님이 로그인 되었습니다.`);
-    Navigate("/meal");
+    PostUserS(objs, successPostUserS, failPostUserS);
+  };
+
+  const successPostUserS = _data => {
+    // console.log("successPostUserS :", _data);
+    if (_data.result === 1) {
+      alert(`${uid}님이 로그인 되었습니다.`);
+      Navigate("/meal");
+    } else if (_data.result === 2) {
+      alert(`아이디를 다시 확인해 주세요.`);
+    } else if (_data.result === 3) {
+      alert(`비밀번호를 다시 확인해 주세요.`);
+    }
+  };
+
+  const failPostUserS = () => {
+    // window.location.href = "/";
+    Navigate("/");
   };
 
   return (

@@ -96,8 +96,12 @@ const RecipeWrite = () => {
       tagIdx: [0, 1, 2, 3, 4],
       tags: songTags,
     };
-    postMeal(obj);
+    postMeal(obj, error500);
   };
+
+  const error500 = () => {
+    navigate("/meal/write")
+  } 
 
   // 이미지 주소를 저장할 state
   const [uploadedImage, setUploadedImage] = useState(null);

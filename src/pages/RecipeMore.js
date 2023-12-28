@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { getMore } from "../api/more_api";
 import Footer from "../components/Footer";
 import {
@@ -42,6 +42,7 @@ const RecipeMore = () => {
   // 화면 새로 고침 (rerendering)
   const [moreData, setMoreData] = useState(initMoreData);
   const [isClicked, setIsClicked] = useState(false);
+  const navigate = useNavigate();
 
   // 최초 렌더링 시 실행
   useEffect(() => {
@@ -50,8 +51,12 @@ const RecipeMore = () => {
     setIsClicked(storedBookMark === "1");
 
     // 최초 렌더링 시 실행
-    getMore(imeal, setMoreData);
+    getMore(imeal, setMoreData, error500);
   }, [imeal]);
+
+  const error500 = () => {
+    navigate(`/meal/more/${imeal}`)
+  }
 
   useEffect(() => {
     // isClicked 값이 변경될 때마다 sessionStorage에 저장
@@ -74,7 +79,7 @@ const RecipeMore = () => {
   };
 
   const handleClickDelete = e => {
-    deleteMore(imeal, setMoreData);
+    deleteMore(imeal, setMoreData, error500);
   };
   return (
     <div>

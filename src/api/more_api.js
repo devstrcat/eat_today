@@ -1,17 +1,17 @@
 import axios from "axios";
 
-export const getMore = async (imeal, setMoreData) => {
+export const getMore = async (imeal, setMoreData, error500) => {
   try {
     const url = `/api/meal/${imeal}`;
     const res = await axios.get(url);
     setMoreData(res.data);
   } catch (error) {
     console.log(error);
-    window.location.href = "/";
+    error500()
   }
 };
 
-export const deleteMore = async (imeal, setMoreData) => {
+export const deleteMore = async (imeal, setMoreData, error500) => {
   console.log("imeal=", imeal);
   try {
     const url = `/api/meal?imeal=${imeal}`;
@@ -19,6 +19,6 @@ export const deleteMore = async (imeal, setMoreData) => {
     setMoreData(res.data);
   } catch (error) {
     console.log(error);
-    window.location.href = "/";
+    error500()
   }
 };

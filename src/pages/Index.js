@@ -5,6 +5,7 @@ import MealViewBt from "../components/meal/MealViewBt";
 import MealSmall from "../components/meal/MealSmall";
 import MealBig from "../components/meal/MealBig";
 import { getMeal } from "../api/meal/meal_api";
+import { useNavigate } from "react-router";
 
 const Index = () => {
   // button
@@ -15,6 +16,7 @@ const Index = () => {
   const [searchText, setSearchText] = useState("");
   // page 
   const [page, setPage] = useState(1);
+  const navigate = useNavigate();
 
   // 버튼
   const buttonClick = () => {
@@ -28,11 +30,15 @@ const Index = () => {
   const handleClickGet = () => {
     getMeal(page, 8, 0, (newData) => {
       setData((prevData) => [...prevData, ...newData]);
-    }, UseSearch);
+    }, UseSearch, error500);
   };
   const resetClickGet = () => {
-    getMeal(1, 8, 0, setData);
+    getMeal(1, 8, 0, setData, error500);
   };
+
+  const error500 = () => {
+    navigate("/meal")
+  }
 
   // 검색 조건문
   const handleChange = event => {

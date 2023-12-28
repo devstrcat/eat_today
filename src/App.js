@@ -18,7 +18,6 @@ const App = () => {
   return (
     <Wrap width={320} minh={100}>
       <Routes>
-        
         <Route path="/" element={<Intro />} />
         <Route path="/meal" element={<Index />}></Route>
         <Route path="/meal/write" element={<RecipeWrite />}></Route>
@@ -29,7 +28,7 @@ const App = () => {
         <Route path="/meal/signup" element={<SignUp />} />
         <Route path="/meal/login" element={<LogIn />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/meal/400" element={<NotFound />} />
+        {/* <Route path="/meal/400" element={<NotFound />} /> */}
       </Routes>
     </Wrap>
   );

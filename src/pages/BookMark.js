@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import MealViewBt from "../components/meal/MealViewBt";
 import BookMarkBoard from "../components/meal/BookMarkBoard";
 import { getBookMeal } from "../api/meal/meal_api";
+import { useNavigate } from "react-router";
 
 const BookMark = () => {
   // 기본 데이터
@@ -12,6 +13,7 @@ const BookMark = () => {
   const [searchText, setSearchText] = useState("");
   // page
   const [page, setPage] = useState(1);
+  const navigate = useNavigate();
 
   // 변수
   const storageSearchText = sessionStorage.getItem("searchText");
@@ -22,16 +24,20 @@ const BookMark = () => {
     getBookMeal(
       page,
       8,
-      0,
+      1,
       newData => {
         setData(prevData => [...prevData, ...newData]);
       },
-      UseSearch,
+      UseSearch, error500
     );
   };
   const resetClickGet = () => {
-    getBookMeal(1, 8, 1, setData);
+    getBookMeal(1, 8, 1, setData, error500);
   };
+
+  const error500 = () => {
+    navigate("/meal/bookmark")
+  }
 
   // 검색 조건문
   const handleChange = event => {

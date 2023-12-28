@@ -8,6 +8,7 @@ export const getMeal = async (
   boomark,
   fn,
   searchText = "",
+  error500,
 ) => {
   try {
     // 검색어가 있을 경우 검색어를 쿼리에 추가
@@ -29,15 +30,14 @@ export const getMeal = async (
       window.alert(
         " 존재하지 않는 주소를 입력하셨거나요청하신 페이지의 주소가 변경,삭제되어 찾을 수 없습니다 ",
       );
-      window.location.href = "http://localhost:3000/meal/400";
-    } 
+    }
   } catch (error) {
     console.log(error);
-    window.location.href = "/";
+    error500();
   }
 };
 
-export const postBookMark = async (imeal, fn) => {
+export const postBookMark = async (imeal, fn, error500) => {
   try {
     const url = `/api/meal/bookmark?imeal=${imeal}`;
     const res = await axios.post(url);
@@ -46,7 +46,7 @@ export const postBookMark = async (imeal, fn) => {
     }
   } catch (error) {
     console.log(error);
-    window.location.href = "/";
+    error500();
   }
 };
 
@@ -56,6 +56,7 @@ export const getBookMeal = async (
   bookmark,
   fn,
   searchText = "",
+  error500,
 ) => {
   try {
     // 검색어가 있을 경우 검색어를 쿼리에 추가
@@ -78,10 +79,9 @@ export const getBookMeal = async (
       window.alert(
         " 존재하지 않는 주소를 입력하셨거나요청하신 페이지의 주소가 변경,삭제되어 찾을 수 없습니다 ",
       );
-      window.location.href = "http://localhost:3000/meal/400";
-    } 
+    }
   } catch (error) {
     console.log(error);
-    window.location.href = "/";
+    error500();
   }
 };

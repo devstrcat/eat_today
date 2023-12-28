@@ -200,8 +200,12 @@ const RecipeEdit = () => {
 
   useEffect(() => {
     // 최초 렌더링 시 실행
-    getMoreSong(imeal, successMoreData);
+    getMoreSong(imeal, successMoreData, error500);
   }, [imeal]);
+
+  const error500 = () => {
+    navigate(`/meal/edit/${imeal}`);
+  };
 
   return (
     <RecipeWriteWrap>

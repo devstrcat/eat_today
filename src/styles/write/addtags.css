@@ -1,21 +1,21 @@
-:where(.css-dev-only-do-not-override-p7e5j5).ant-space {
-  position: relative;
-  display: flex;
-  margin-top: 22px;
-  padding: 0 20px;
-  justify-content: flex-start;
-  width: 100%;
-  gap: 8px;
+.ant-space {
+  position: relative !important;
+  display: flex !important;
+  margin-top: 22px !important;
+  padding: 0 20px !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  gap: 8px !important;
 }
-:where(.css-dev-only-do-not-override-p7e5j5).ant-tag {
-  height: 22px;
-  line-height: 22px;
-  margin-inline-end: 0;
-  border-radius: 20px;
-  border: 0;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 4px 0px;
-  font-size: 10px;
-  font-family: "KingSejongInstitute";
-  color: #757575;
+.ant-tag {
+  height: 22px !important;
+  line-height: 22px !important;
+  margin-inline-end: 0 !important;
+  border-radius: 20px !important;
+  border: 0 !important;
+  background-color: #fff !important;
+  box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 4px 0px !important;
+  font-size: 10px !important;
+  font-family: "KingSejongInstitute" !important;
+  color: #757575 !important;
 }
