@@ -28,16 +28,12 @@ const BookMark = () => {
       newData => {
         setData(prevData => [...prevData, ...newData]);
       },
-      UseSearch, error500
+      UseSearch,
     );
   };
   const resetClickGet = () => {
-    getBookMeal(1, 8, 1, setData, error500);
+    getBookMeal(1, 8, 1, setData);
   };
-
-  const error500 = () => {
-    navigate("/meal/bookmark")
-  }
 
   // 검색 조건문
   const handleChange = event => {
@@ -105,7 +101,7 @@ const BookMark = () => {
       setSearchText(storageSearchText);
     }
     handleClickGet();
-  }, [page, UseSearch]);
+  }, []);
 
   return (
     <div>

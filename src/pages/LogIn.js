@@ -25,7 +25,7 @@ const LogIn = () => {
     };
 
     if (!uid || !upw) {
-      setModalContent("빈 항목을 입력해주세요.");
+      setModalContent("회원가입을 해주세요.");
       setIsModalOpen(true);
       return;
     }
@@ -36,7 +36,7 @@ const LogIn = () => {
   const successPostUserS = _data => {
     if (_data.result === 1) {
       setIsModalOpen(true);
-      setModalContent(`${uid}님이 로그인 되었습니다.`);
+      alert(`${uid}님이 로그인 되었습니다.`);
       Navigate("/meal");
     } else if (_data.result === 2) {
       setModalContent("아이디를 확인해 주세요.");

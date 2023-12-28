@@ -18,7 +18,8 @@ import {
   storage,
   uploadBytes,
 } from "../fb/firebaseconfig";
-import AddImages from "../components/write/AddImages";
+
+import ModifyImages from "../components/write/ModifyImages";
 
 // 서버에서 돌려주는 값
 const initMoreData = {
@@ -66,7 +67,7 @@ const RecipeEdit = () => {
 
   // 내용 재 작성 (리셋 기능)
   const handelClickReset = () => {
-    console.log("리셋입니다.");
+    // console.log("리셋입니다.");
     setTitle(moreData.title);
     setIngredient(moreData.ingredient);
     setRecipe(moreData.recipe);
@@ -116,22 +117,26 @@ const RecipeEdit = () => {
       pics: pics,
       tags: songTagsArr,
     };
-    putMeal(obj, successEdit);
+    putMeal(obj);
   };
 
   // AddImages 컴포넌트로부터 이미지 업로드 후 주소를 받아오는 함수
   const handleImageUpload = async file => {
-    const imageUrl = await uploadImageToStorage(file);
+    // console.log("handleImageUpload : ", file);
+    if (file) {
+      const imageUrl = await uploadImageToStorage(file);
 
-    // 기존 pics 배열과 중복을 방지하기 위해 이미지 주소가 없는 경우에만 추가
-    if (!pics.includes(imageUrl)) {
-      setPics(prevPics => [...prevPics, imageUrl]);
+      // 기존 pics 배열과 중복을 방지하기 위해 이미지 주소가 없는 경우에만 추가
+      if (!pics.includes(imageUrl)) {
+        setPics(prevPics => [...prevPics, imageUrl]);
+      }
+      setUploadedImage(imageUrl);
     }
-    setUploadedImage(imageUrl);
   };
 
   // 이미지 업로드 로직
   const uploadImageToStorage = async file => {
+    // console.log("file", file);
     try {
       // Firebase Storage에 업로드할 경로 설정 (예시: images 폴더에 업로드)
       const storageRef = ref(storage, `images/${file.name}`);
@@ -145,7 +150,7 @@ const RecipeEdit = () => {
       // 받아온 이미지 URL을 반환
       return imageUrl;
     } catch (error) {
-      console.error(error);
+      console.error("Error uploading image:", error);
       // 오류 처리 (예: 사용자에게 알림 등)
       throw error;
     }
@@ -200,23 +205,19 @@ const RecipeEdit = () => {
 
   useEffect(() => {
     // 최초 렌더링 시 실행
-    getMoreSong(imeal, successMoreData, error500);
+    getMoreSong(imeal, successMoreData);
   }, [imeal]);
-
-  const error500 = () => {
-    navigate(`/meal/edit/${imeal}`);
-  };
 
   return (
     <RecipeWriteWrap>
       <RecipeWriteTop>
         {/* 이미지 추가 */}
-        <AddImages
-          onImageUpload={(file, index) => handleImageUpload(file, index)}
+        <ModifyImages
+          onImageUpload={file => handleImageUpload(file)}
           setPics={setPics}
           imageUrl={pics}
           previewImageUrls={moreData.pics}
-        ></AddImages>
+        ></ModifyImages>
         {/* 텍스트 박스 */}
         <TextBoxes>
           <input
@@ -276,6 +277,7 @@ const RecipeEdit = () => {
               alt=""
               onClick={e => {
                 handelClickSubmit(e);
+                successEdit();
               }}
             />
           </div>

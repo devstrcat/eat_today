@@ -51,12 +51,8 @@ const RecipeMore = () => {
     setIsClicked(storedBookMark === "1");
 
     // 최초 렌더링 시 실행
-    getMore(imeal, setMoreData, error500);
+    getMore(imeal, setMoreData);
   }, [imeal]);
-
-  const error500 = () => {
-    navigate(`/meal/more/${imeal}`)
-  }
 
   useEffect(() => {
     // isClicked 값이 변경될 때마다 sessionStorage에 저장
@@ -79,7 +75,7 @@ const RecipeMore = () => {
   };
 
   const handleClickDelete = e => {
-    deleteMore(imeal, setMoreData, error500);
+    deleteMore(imeal, setMoreData);
   };
   return (
     <div>

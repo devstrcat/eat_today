@@ -96,12 +96,13 @@ const RecipeWrite = () => {
       tagIdx: [0, 1, 2, 3, 4],
       tags: songTags,
     };
-    postMeal(obj, error500);
+    postMeal(obj);
+    successWrite();
   };
 
   const error500 = () => {
-    navigate("/meal/write")
-  } 
+    navigate("/meal/write");
+  };
 
   // 이미지 주소를 저장할 state
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -204,7 +205,6 @@ const RecipeWrite = () => {
               className="complete-bt"
               onClick={e => {
                 handelClickSubmit(e);
-                successWrite();
               }}
             >
               <img src="/images/write/check_icon.svg" alt="" />

@@ -28,7 +28,7 @@ const SignUp = () => {
       return;
     }
     setIsModalOpen(true);
-    setModalContent(`${uid}님이 가입 되셨습니다.`);
+    alert(`${uid}님이 가입 되셨습니다.`);
     PostUser(obj);
     Navigate("/meal/login");
   };

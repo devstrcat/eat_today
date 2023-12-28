@@ -9,7 +9,7 @@ export const PostUserS = async (objs, successPostUserS, failPostUserS) => {
     const res = await axios.post(`${SERVER_URL}/api/user/signin`, objs);
     successPostUserS(res.data);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     failPostUserS();
   }
 };

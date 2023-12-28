@@ -7,19 +7,18 @@ import axios from "axios";
 // (result(-4): 입력받은 제목, 재료, 타이틀이 없습니다, (0): 실패, (1): 성공)
 
 // 수정페이지에 내용(상세페이지) 가져오기
-export const getMoreSong = async (imeal, successMoreData, error500) => {
+export const getMoreSong = async (imeal, successMoreData) => {
   try {
     const url = `/api/meal/${imeal}`;
     const res = await axios.get(url);
     successMoreData(res.data);
   } catch (error) {
-    console.log(error);
-    error500();
+    // console.log(error);
   }
 };
 
 // 수정 페이지 (put)
-export const putMeal = async (obj, successEdit, error500) => {
+export const putMeal = async (obj, successEdit) => {
   console.log("putMeal", obj);
   try {
     const res = await axios.put("/api/meal", obj);
@@ -38,8 +37,7 @@ export const putMeal = async (obj, successEdit, error500) => {
     }
   } catch (error) {
     // 서버의 장애 발생
-    console.log(error);
-    error500();
+    // console.log(error);
   }
 };
 
@@ -53,18 +51,17 @@ export const putMeal = async (obj, successEdit, error500) => {
 // (-7): 비정상적인 태그 등록)
 
 // 작성 페이지 (post)
-export const postMeal = async (obj, error500) => {
+export const postMeal = async obj => {
   try {
     const res = await axios.post("/api/meal", obj);
     // console.log("일지전송 성공", res.data);
   } catch (error) {
-    console.log(error);
-    error500();
+    // console.log(error);
   }
 };
 
-export const deleteMealTag = async (itag, error500) => {
-  console.log("deleteMealTag", itag);
+export const deleteMealTag = async itag => {
+  // console.log("deleteMealTag", itag);
   try {
     const res = await axios.delete(`/api/meal/tag?itag=${itag}`);
     if (res.data === 0) {
@@ -76,8 +73,7 @@ export const deleteMealTag = async (itag, error500) => {
     }
   } catch (error) {
     // 서버의 장애 발생
-    console.log(error);
-    error500();
+    // console.log(error);
   }
 };
 
@@ -85,7 +81,7 @@ export const deleteMealTag = async (itag, error500) => {
 // 해당 일지는 없는 일지 입니다)
 
 export const deleteMealPic = async (imeal, ipic) => {
-  console.log("deleteMealPic", " imeal=", imeal, " ipic=", ipic);
+  // console.log("deleteMealPic", " imeal=", imeal, " ipic=", ipic);
   try {
     //?imeal=0&ipic=0
     const res = await axios.delete(`/api/meal/pic?imeal=${imeal}&ipic=${ipic}`);
@@ -101,7 +97,6 @@ export const deleteMealPic = async (imeal, ipic) => {
     }
   } catch (error) {
     // 서버의 장애 발생
-    console.log(error);
-    window.location.href = "/";
+    // console.log(error);
   }
 };

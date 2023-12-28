@@ -3,8 +3,6 @@ import { AddImagesDiv } from "../../styles/write/addimages";
 import styled from "@emotion/styled";
 import "../../styles/write/addimages.css";
 import { Modal, Upload } from "antd";
-import { deleteObject, ref } from "firebase/storage";
-import { storage } from "../../fb/firebaseconfig";
 
 const Uimg = styled.div`
   width: 87px;
@@ -28,7 +26,7 @@ const getBase64 = file =>
     reader.onerror = error => reject(error);
   });
 
-const AddImages = props => {
+const ModifyImages = props => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [fileList, setFileList] = useState([]);
@@ -43,40 +41,19 @@ const AddImages = props => {
     setPreviewImage(file.url || file.preview);
   };
 
-  const handleChange = ({ fileList: newFileList }) => {
-    // console.log(newFileList);
-    setFileList(newFileList);
-
-    // 이미지가 업로드되면 onImageUpload 함수 호출
-    newFileList.forEach(async (file, index) => {
-      if (file.status === "done" && !file.alreadyUploaded) {
-        file.alreadyUploaded = true;
-
-        await props.onImageUpload(file.originFileObj, index);
+  const handleChange = async ({ fileList }) => {
+    // console.log("AddImagees.js handleChange : ", fileList);
+    setFileList(fileList);
+    if (fileList.length > 0) {
+      const nowIndex = fileList.length - 1;
+      const tempFile = fileList[nowIndex];
+      if (!tempFile.originFileObj) {
+        await props.onImageUpload(tempFile.originFileObj, nowIndex);
       }
-    });
-  };
-
-  const handleRemove = async file => {
-    try {
-      const storageRef = ref(storage, `images/${file.name}`);
-      await deleteObject(storageRef);
-
-      if (props.imageUrl) {
-        const getName = encodeURIComponent(`images/${file.name}`);
-
-        const filteredImageUrls = props.imageUrl.filter(
-          url => !url.includes(getName),
-        );
-        props.setPics(filteredImageUrls);
-
-        const filteredFileList = fileList.filter(f => f.uid !== file.uid);
-        setFileList(filteredFileList);
-      }
-    } catch (error) {
-      // console.log(error);
     }
   };
+
+  const handleRemove = async file => {};
 
   useEffect(() => {
     if (!props.previewImageUrls) {
@@ -127,4 +104,4 @@ const AddImages = props => {
   );
 };
 
-export default AddImages;
+export default ModifyImages;

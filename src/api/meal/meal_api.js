@@ -8,7 +8,6 @@ export const getMeal = async (
   boomark,
   fn,
   searchText = "",
-  error500,
 ) => {
   try {
     // 검색어가 있을 경우 검색어를 쿼리에 추가
@@ -32,12 +31,11 @@ export const getMeal = async (
       );
     }
   } catch (error) {
-    console.log(error);
-    error500();
+    // console.log(error);
   }
 };
 
-export const postBookMark = async (imeal, fn, error500) => {
+export const postBookMark = async (imeal, fn) => {
   try {
     const url = `/api/meal/bookmark?imeal=${imeal}`;
     const res = await axios.post(url);
@@ -45,8 +43,7 @@ export const postBookMark = async (imeal, fn, error500) => {
       fn(res.data.bookmark);
     }
   } catch (error) {
-    console.log(error);
-    error500();
+    // console.log(error);
   }
 };
 
@@ -56,7 +53,6 @@ export const getBookMeal = async (
   bookmark,
   fn,
   searchText = "",
-  error500,
 ) => {
   try {
     // 검색어가 있을 경우 검색어를 쿼리에 추가
@@ -81,7 +77,6 @@ export const getBookMeal = async (
       );
     }
   } catch (error) {
-    console.log(error);
-    error500();
+    // console.log(error);
   }
 };

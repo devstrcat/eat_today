@@ -112,7 +112,7 @@ const Index = () => {
       setSearchText(storageSearchText);
     }
     handleClickGet();
-  }, [page, UseSearch]);
+  }, [page]);
 
   return (
     <div>
