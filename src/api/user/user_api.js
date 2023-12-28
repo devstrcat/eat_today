@@ -10,6 +10,6 @@ export const PostUser = async obj => {
     console.log(res.data);
   } catch (error) {
     console.log(error);
-    console.log("서버가 불안정합니다.");
+    window.location.href = "/";
   }
 };
