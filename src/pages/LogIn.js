@@ -1,3 +1,4 @@
+import { Button, Modal } from "antd";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { PostUserS } from "../api/user/signup_api";
@@ -10,9 +11,10 @@ import {
 } from "../styles/myuser/mylog";
 
 const LogIn = () => {
-  //로그인
   const [uid, setUid] = useState("");
   const [upw, setUpw] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
   const Navigate = useNavigate();
 
   const goRouter = e => {
@@ -21,8 +23,10 @@ const LogIn = () => {
       uid: uid,
       upw: upw,
     };
+
     if (!uid || !upw) {
-      alert("모든 항목을 입력해주세요.");
+      setModalContent("빈 항목을 입력해주세요.");
+      setIsModalOpen(true);
       return;
     }
 
@@ -30,20 +34,26 @@ const LogIn = () => {
   };
 
   const successPostUserS = _data => {
-    // console.log("successPostUserS :", _data);
     if (_data.result === 1) {
-      alert(`${uid}님이 로그인 되었습니다.`);
+      setIsModalOpen(true);
+      setModalContent(`${uid}님이 로그인 되었습니다.`);
       Navigate("/meal");
     } else if (_data.result === 2) {
-      alert(`아이디를 다시 확인해 주세요.`);
+      setModalContent("아이디를 확인해 주세요.");
+      setIsModalOpen(true);
     } else if (_data.result === 3) {
-      alert(`비밀번호를 다시 확인해 주세요.`);
+      setModalContent("비밀번호를 확인해 주세요.");
+      setIsModalOpen(true);
     }
   };
 
   const failPostUserS = () => {
-    // window.location.href = "/";
-    Navigate("/");
+    setModalContent("서버 에러가 발생했습니다.");
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -73,10 +83,24 @@ const LogIn = () => {
             />
           </label>
         </LogBox>
+        <ButtonLog onClick={e => goRouter(e)}>로그인</ButtonLog>
         <Link to={"/meal/signup"}>
           <Sign>회원가입</Sign>
         </Link>
-        <ButtonLog onClick={e => goRouter(e)}>로그인</ButtonLog>
+        <Modal
+          className="ant-modal-content"
+          open={isModalOpen}
+          onOk={handleOk}
+          closable={false}
+          style={{ textAlign: "center" }}
+          footer={[
+            <Button key="submit" type="primary" onClick={handleOk}>
+              OK
+            </Button>,
+          ]}
+        >
+          <p>{modalContent}</p>
+        </Modal>
       </LogBoxs>
     </Wraps>
   );

@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 import { PostUser } from "../api/user/user_api";
 import { Cover, Log, MyUser, UserButton } from "../styles/myuser/MyUser";
+import { Button, Modal } from "antd";
 
 const SignUp = () => {
   const [uid, setUid] = useState("");
   const [upw, setUpw] = useState("");
   const [nm, setNm] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
   const Navigate = useNavigate();
 
   // setPic은 아직 사용 안함
@@ -20,12 +23,18 @@ const SignUp = () => {
       nm: nm,
     };
     if (!uid || !upw || !nm) {
-      alert("모든 항목을 입력해주세요.");
+      setIsModalOpen(true);
+      setModalContent("빈 항목을 입력해 주세요");
       return;
     }
+    setIsModalOpen(true);
+    setModalContent(`${uid}님이 가입 되셨습니다.`);
     PostUser(obj);
-    alert(`${uid}님이 가입 되셨습니다.`);
     Navigate("/meal/login");
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -63,6 +72,19 @@ const SignUp = () => {
           <UserButton onClick={e => handleClickUser(e)}>회원가입</UserButton>
         </Log>
       </MyUser>
+      <Modal
+        open={isModalOpen}
+        onOk={handleOk}
+        closable={false}
+        style={{ textAlign: "center" }}
+        footer={[
+          <Button key="submit" type="primary" onClick={handleOk}>
+            OK
+          </Button>,
+        ]}
+      >
+        <p>{modalContent}</p>
+      </Modal>
     </Cover>
   );
 };

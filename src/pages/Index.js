@@ -14,7 +14,7 @@ const Index = () => {
   const [data, setData] = useState([]);
   // 검색 저장
   const [searchText, setSearchText] = useState("");
-  // page 
+  // page
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
@@ -28,17 +28,24 @@ const Index = () => {
 
   // 검색 데이터 연동
   const handleClickGet = () => {
-    getMeal(page, 8, 0, (newData) => {
-      setData((prevData) => [...prevData, ...newData]);
-    }, UseSearch, error500);
+    getMeal(
+      page,
+      8,
+      0,
+      newData => {
+        setData(prevData => [...prevData, ...newData]);
+      },
+      UseSearch,
+      error500,
+    );
   };
   const resetClickGet = () => {
     getMeal(1, 8, 0, setData, error500);
   };
 
   const error500 = () => {
-    navigate("/meal")
-  }
+    navigate("/meal");
+  };
 
   // 검색 조건문
   const handleChange = event => {
@@ -69,9 +76,8 @@ const Index = () => {
     resetClickGet();
   };
 
-  // scroll 시 page가 +1 
+  // scroll 시 page가 +1
   const handleScroll = () => {
-
     const windowHeight =
       "innerHeight" in window
         ? window.innerHeight
@@ -83,14 +89,14 @@ const Index = () => {
       body.offsetHeight,
       html.clientHeight,
       html.scrollHeight,
-      html.offsetHeight
+      html.offsetHeight,
     );
-  
+
     const windowBottom = windowHeight + window.pageYOffset;
-  
+
     if (windowBottom >= docHeight - 1) {
       // 스크롤이 하단에 도달하면 페이지 번호를 증가시키고 데이터 가져오기
-      setPage((prevPage) => prevPage + 1);
+      setPage(prevPage => prevPage + 1);
     }
   };
 

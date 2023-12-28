@@ -1,61 +1,76 @@
 .ant-modal .ant-modal-content {
-    position: absolute !important; 
-    transform: translate(80%,-20%) !important;
-    width: 200px !important;
+  position: absolute !important;
+  transform: translate(80%, -20%) !important;
+  width: 200px !important;
 }
 .ant-modal .ant-modal-header {
-    width: 120px !important; 
+  width: 120px !important;
 }
-
 
 .ant-upload-wrapper.ant-upload-picture-card-wrapper {
-    width: 280px !important;
+  width: 280px !important;
 }
 
-.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container {
-    width: 87px !important;
-    height: 77px !important;
-    margin-block: 0 !important;
-    margin-inline: 0 !important;
-    margin-right: 8px !important;
+.ant-upload-wrapper.ant-upload-picture-card-wrapper
+  .ant-upload-list.ant-upload-list-picture-card
+  .ant-upload-list-item-container {
+  width: 87px !important;
+  height: 77px !important;
+  margin-block: 0 !important;
+  margin-inline: 0 !important;
+  margin-right: 8px !important;
 }
 
-.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item::before {
-    width: 87px !important;
-    height: 77px !important;
-    border-radius: 20px !important;
+.ant-upload-wrapper.ant-upload-picture-card-wrapper
+  .ant-upload-list.ant-upload-list-picture-card
+  .ant-upload-list-item::before {
+  width: 87px !important;
+  height: 77px !important;
+  border-radius: 20px !important;
 }
 
-.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item {
-    padding: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    justify-content: center !important;
+.ant-upload-wrapper.ant-upload-picture-card-wrapper
+  .ant-upload-list.ant-upload-list-picture-card
+  .ant-upload-list-item {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  justify-content: center !important;
 }
 
-.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-thumbnail {
-    width: 87px !important;
-    height: 77px !important;
-    object-fit: cover !important;
+.ant-upload-wrapper.ant-upload-picture-card-wrapper
+  .ant-upload-list.ant-upload-list-picture-card
+  .ant-upload-list-item-thumbnail {
+  width: 87px !important;
+  height: 77px !important;
+  object-fit: cover !important;
 }
 
-.ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-thumbnail img {
-    width: 87px !important;
-    height: 77px !important;
-    object-fit: cover !important;
+.ant-upload-wrapper.ant-upload-picture-card-wrapper
+  .ant-upload-list.ant-upload-list-picture-card
+  .ant-upload-list-item-thumbnail
+  img {
+  width: 87px !important;
+  height: 77px !important;
+  object-fit: cover !important;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-upload-wrapper .ant-upload-list {
-    display: flex !important;
-    align-items: center !important;
+.ant-upload-wrapper .ant-upload-list {
+  display: flex !important;
+  align-items: center !important;
 }
 
-:where(.css-dev-only-do-not-override-p7e5j5).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select, :where(.css-dev-only-do-not-override-p7e5j5).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
-    border: 0 !important;
-    cursor: pointer !important;
-    background-color: transparent !important;
-    width: 87px !important;
-    height: 77px !important;
-    margin-bottom: 0 !important;
-    margin-inline-end: 0 !important;
+.ant-upload-wrapper.ant-upload-picture-card-wrapper
+  .ant-upload.ant-upload-select,
+:where(
+    .css-dev-only-do-not-override-p7e5j5
+  ).ant-upload-wrapper.ant-upload-picture-circle-wrapper
+  .ant-upload.ant-upload-select {
+  border: 0 !important;
+  cursor: pointer !important;
+  background-color: transparent !important;
+  width: 87px !important;
+  height: 77px !important;
+  margin-bottom: 0 !important;
+  margin-inline-end: 0 !important;
 }
