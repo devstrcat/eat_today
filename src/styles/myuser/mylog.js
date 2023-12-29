@@ -27,7 +27,7 @@ export const LogBoxs = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-export const LogBox = styled.div`
+export const LogBox = styled.form`
   width: 320px;
   display: flex;
   justify-content: space-between;

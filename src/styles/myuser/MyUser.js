@@ -27,7 +27,7 @@ export const MyUser = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-export const Log = styled.div`
+export const Log = styled.form`
   width: 320px;
   display: flex;
   justify-content: space-between;

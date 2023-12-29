@@ -58,6 +58,7 @@ const SignUp = () => {
               value={uid}
               onChange={e => setUid(e.target.value)}
               className="id"
+              autoComplete="username"
             />
           </div>
 
@@ -67,6 +68,7 @@ const SignUp = () => {
               type="password"
               value={upw}
               onChange={e => setUpw(e.target.value)}
+              autoComplete="current-password"
             />
           </div>
           <UserButton onClick={e => handleClickUser(e)}>회원가입</UserButton>

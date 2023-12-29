@@ -1,3 +1,7 @@
+.ant-upload-list-item a {
+  display: none;
+}
+
 .ant-modal .ant-modal-content {
   position: absolute !important;
   transform: translate(80%, -20%) !important;

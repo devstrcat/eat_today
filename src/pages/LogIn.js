@@ -69,6 +69,7 @@ const LogIn = () => {
               onChange={e => setUid(e.target.value)}
               placeholder="아이디"
               className="id"
+              autoComplete="username"
             />
           </label>
 
@@ -80,6 +81,7 @@ const LogIn = () => {
               onChange={e => setUpw(e.target.value)}
               placeholder="비밀번호"
               className="pw"
+              autoComplete="current-password"
             />
           </label>
         </LogBox>
